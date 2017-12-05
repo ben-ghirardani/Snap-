@@ -37,11 +37,16 @@ class App extends Component {
     }
   }
 
-  // click event shuffles both decks identically. Need fix.
   handlePlaySnap(event) {
       console.log("handlePlaySnap was clicked")
-      this.shuffleDeck(this.state.playerDeck);
-      this.shuffleDeck(this.state.opponentDeck);
+      // shuffle player deck
+      let playerDeckToShuffle = this.state.playerDeck;
+      this.shuffleDeck(playerDeckToShuffle);
+      this.setState({ playerDeck: playerDeckToShuffle })
+      // shuffle opponent deck
+      let opponentDeckToShuffle = this.state.opponentDeck;
+      this.shuffleDeck(opponentDeckToShuffle);
+      this.setState({ opponentDeck: opponentDeckToShuffle })
   }
 
   // to create - 
@@ -62,10 +67,10 @@ class App extends Component {
       {/* how to refer to each of the Position components individually? The classNames below don't work, wrap in divs?  */}
 
       {/* I want to shuffle the decks and then pass them to the Position components */}
-      <Position className="playerPosition"/>
-      <Position className="opponentPosition"/>
+      <Position className="playerPosition" playerDeck={this.state.playerDeck} />
+      <Position className="opponentPosition" opponentDeck={this.state.opponentDeck} />
       </div>
-    );
+    );  
   }
 }
 
