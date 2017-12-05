@@ -1,0 +1,13 @@
+.container {
+    border-radius: 1px;
+    border-style: solid;
+    border-color: black;
+    background: purple
+}
+
+.playerPosition {
+    border-radius: 1px;
+    border-style: solid;
+    border-color: black;
+    background: purple
+}
