@@ -59,8 +59,11 @@ class App extends Component {
       This is Snap!
       <button className="playSnap" onClick={this.handlePlaySnap.bind(this)} >Play Snap!</button>
 
+      {/* how to refer to each of the Position components individually? The classNames below don't work, wrap in divs?  */}
+
+      {/* I want to shuffle the decks and then pass them to the Position components */}
       <Position className="playerPosition"/>
-      {/* <Position className="opponentPosition"/> */}
+      <Position className="opponentPosition"/>
       </div>
     );
   }

@@ -6,7 +6,7 @@ class Position extends Component {
     render() {
         return (
             <div className="container">
-                This is the Position component
+
             </div>
         );
     }

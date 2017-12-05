@@ -2,12 +2,16 @@
     border-radius: 1px;
     border-style: solid;
     border-color: black;
-    background: purple
+    background: lightgreen;
+    height: 180px;
+    width: 150px
 }
 
-.playerPosition {
+/* .playerPosition {
     border-radius: 1px;
     border-style: solid;
     border-color: black;
-    background: purple
-}
+    background: lightgreen;
+    height: 180px;
+    width: 150px
+} */
