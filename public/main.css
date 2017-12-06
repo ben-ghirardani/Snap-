@@ -1,4 +1,4 @@
-.container {
+.player-container {
     border-radius: 1px;
     border-style: solid;
     border-color: black;
@@ -7,11 +7,23 @@
     width: 150px
 }
 
-/* .playerPosition {
+.opponent-container {
     border-radius: 1px;
     border-style: solid;
     border-color: black;
-    background: lightgreen;
+    background: darkgreen;
     height: 180px;
     width: 150px
-} */
+}
+
+.playSnap {
+    border-radius: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.testButton {
+    border-radius: 1px;
+    border-style: solid;
+    border-color: black;
+}

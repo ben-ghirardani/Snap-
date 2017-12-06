@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Position from './Position';
+import PlayerPosition from './PlayerPosition';
+import OpponentPosition from './OpponentPosition'
 
 class App extends Component {
 
@@ -49,9 +50,17 @@ class App extends Component {
       this.setState({ opponentDeck: opponentDeckToShuffle })
   }
 
-  // to create - 
-  // player position component - a place to put the deck of cards, including a counter of how many cards are left.
+  // works as expected by removing from state in app, then passing the change down to the child component.
+  // adapt this button to remove a card from the player deck, place it in the middle, check for a match of the 
+  // last two results. Could use index position via length of array ( minus 1? ). 
+  handleTestButton(event) {
+    console.log("test button was pressed")
+    let test = this.state.playerDeck;
+    test.pop()
+    this.setState({playerDeck: test});
+  }
 
+  // to create - 
   // central component where cards that have been played go.
 
   // method to remove a card from the active deck array, and place it into the central pile array.
@@ -62,13 +71,19 @@ class App extends Component {
     return (
       <div className="App">
       This is Snap!
+      <br></br>
       <button className="playSnap" onClick={this.handlePlaySnap.bind(this)} >Play Snap!</button>
+      <br></br>
 
-      {/* how to refer to each of the Position components individually? The classNames below don't work, wrap in divs?  */}
+      {/* should the deck be a component of it's own, which is then fed into the Position components? */}
 
-      {/* I want to shuffle the decks and then pass them to the Position components */}
-      <Position className="playerPosition" playerDeck={this.state.playerDeck} />
-      <Position className="opponentPosition" opponentDeck={this.state.opponentDeck} />
+      <br></br>
+      <button className="testButton" onClick={this.handleTestButton.bind(this)}>Test if state is passed down to components</button>
+      <br></br>
+
+      <PlayerPosition className="playerPosition" playerDeck={this.state.playerDeck} />
+      <br></br>
+      <OpponentPosition className="opponentPosition" opponentDeck={this.state.opponentDeck} />
       </div>
     );  
   }
