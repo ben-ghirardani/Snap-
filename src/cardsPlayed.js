@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 
-class cardsPlayed extends Component {
+class CardsPlayed extends Component {
+
+    // method to look at last card and penultimate card
 
     render() {
         return(
             <div className="cardsPlayed">
-
+                Cards Played
+                <br></br>
+                Last Card: 
             </div>
         )
     } 
@@ -13,4 +17,4 @@ class cardsPlayed extends Component {
 
 }
 
-export default cardsPlayed;
+export default CardsPlayed;

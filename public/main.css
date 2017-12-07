@@ -16,13 +16,22 @@
     width: 150px
 }
 
+.cardsPlayed {
+    border-radius: 1px;
+    border-style: solid;
+    border-color: black;
+    background: lightskyblue;
+    height: 180px;
+    width: 150px
+}
+
 .playSnap {
     border-radius: 1px;
     border-style: solid;
     border-color: black;
 }
 
-.testButton {
+.playCard {
     border-radius: 1px;
     border-style: solid;
     border-color: black;

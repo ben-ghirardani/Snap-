@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlayerPosition from './PlayerPosition';
-import OpponentPosition from './OpponentPosition'
+import OpponentPosition from './OpponentPosition';
+import CardsPlayed from './CardsPlayed';
 
 class App extends Component {
 
@@ -25,7 +26,7 @@ class App extends Component {
           { suit: "Spades", name: "Ace", value: 1 }, { suit: "Spades", name: "Two", value: 2 }, { suit: "Spades", name: "Three", value: 3 }, { suit: "Spades", name: "Four", value: 4 }, { suit: "Spades", name: "Five", value: 5 }, { suit: "Spades", name: "Six", value: 6 }, { suit: "Spades", name: "Seven", value: 7 }, { suit: "Spades", name: "Eight", value: 8 }, { suit: "Spades", name: "Nine", value: 9 }, { suit: "Spades", name: "Ten", value: 10 }, { suit: "Spades", name: "Jack", value: 11 }, { suit: "Spades", name: "Queen", value: 12 }, { suit: "Spades", name: "King", value: 13 },
           { suit: "Hearts", name: "Ace", value: 1 }, { suit: "Hearts", name: "Two", value: 2 }, { suit: "Hearts", name: "Three", value: 3 }, { suit: "Hearts", name: "Four", value: 4 }, { suit: "Hearts", name: "Five", value: 5 }, { suit: "Hearts", name: "Six", value: 6 }, { suit: "Hearts", name: "Seven", value: 7}, { suit: "Hearts", name: "Eight", value: 8 }, { suit: "Hearts", name: "Nine", value: 9 }, { suit: "Hearts", name: "Ten", value: 10 }, { suit: "Hearts", name: "Jack", value: 11 }, { suit: "Hearts", name: "Queen", value: 12 }, { suit: "Hearts", name: "King", value: 13 }
         ],
-        centralPile: []
+        cardsPlayed: []
     };
     this.handlePlaySnap = this.handlePlaySnap.bind(this);
     this.shuffleDeck = this.shuffleDeck.bind(this);
@@ -50,21 +51,17 @@ class App extends Component {
       this.setState({ opponentDeck: opponentDeckToShuffle })
   }
 
-  // works as expected by removing from state in app, then passing the change down to the child component.
-  // adapt this button to remove a card from the player deck, place it in the middle, check for a match of the 
-  // last two results. Could use index position via length of array ( minus 1? ). 
-  handleTestButton(event) {
-    console.log("test button was pressed")
-    let test = this.state.playerDeck;
-    test.pop()
-    this.setState({playerDeck: test});
+  playCard(event) {
+    console.log("playCard was pressed")
+    let deck = this.state.playerDeck;
+    let cardPlayed = deck.splice(-1, 1);
+    let oldCardsPlayed = this.state.cardsPlayed;
+    oldCardsPlayed.push(cardPlayed);
+    this.setState({cardsPlayed: oldCardsPlayed});
+    this.setState({playerDeck: deck});
   }
 
   // to create - 
-  // central component where cards that have been played go.
-
-  // method to remove a card from the active deck array, and place it into the central pile array.
-
   // method to check if the last two cards in the central pile array match suits do not matter, only value.
 
   render() {
@@ -74,16 +71,20 @@ class App extends Component {
       <br></br>
       <button className="playSnap" onClick={this.handlePlaySnap.bind(this)} >Play Snap!</button>
       <br></br>
-
-      {/* should the deck be a component of it's own, which is then fed into the Position components? */}
-
+      <PlayerPosition 
+        className="playerPositionMain" 
+        playerDeck={this.state.playerDeck}
+        playCard={this.playCard.bind(this)}
+      />
       <br></br>
-      <button className="testButton" onClick={this.handleTestButton.bind(this)}>Test if state is passed down to components</button>
-      <br></br>
-
-      <PlayerPosition className="playerPosition" playerDeck={this.state.playerDeck} />
-      <br></br>
-      <OpponentPosition className="opponentPosition" opponentDeck={this.state.opponentDeck} />
+      <OpponentPosition 
+        className="opponentPositionMain" 
+        opponentDeck={this.state.opponentDeck} 
+      />
+      <CardsPlayed 
+        className="cardsPlayedMain"
+        cardsPlayed={this.state.cardsPlayed}
+      />
       </div>
     );  
   }
