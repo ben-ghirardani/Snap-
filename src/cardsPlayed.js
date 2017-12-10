@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
+import AceOfDiamonds from './img/AceOfDiamonds.png';
 
 class CardsPlayed extends Component {
-
-    // method to look at last card and penultimate card
 
     render() {
         return(
             <div className="cardsPlayed">
                 Cards Played
                 <br></br>
-                Last Card: 
+                Last Card: {  }
+                <img src={AceOfDiamonds} alt={"img unavailable"} />
             </div>
         )
     } 
