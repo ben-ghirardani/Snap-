@@ -8,8 +8,7 @@ class CardsPlayed extends Component {
             <div className="cardsPlayed">
                 Cards Played
                 <br></br>
-                Last Card: {  }
-                <img src={AceOfDiamonds} alt={"img unavailable"} />
+                <img src={this.props.cardsPlayedLastCard[0].img} alt={"img unavailable"} />
             </div>
         )
     } 
