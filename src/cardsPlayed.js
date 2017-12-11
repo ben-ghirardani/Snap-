@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import AceOfDiamonds from './img/AceOfDiamonds.png';
+// import AceOfDiamonds from './img/AceOfDiamonds.png';
 
 class CardsPlayed extends Component {
 

@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import PlayerPosition from './PlayerPosition';
 import OpponentPosition from './OpponentPosition';
 import CardsPlayed from './CardsPlayed';
-import AceOfDiamonds from './img/AceOfDiamonds.png';
+import CardBack from './img/CardBack.png';
+import TwoOfClubs from './img/TwoOfClubs.png';
+import TwoOfDiamonds from './img/TwoOfDiamonds.png';
+import TwoOfHearts from './img/TwoOfHearts.png';
+import TwoOfSpades from './img/TwoOfSpades.png';
+import ThreeOfClubs from './img/ThreeOfClubs.png';
+
 
 class App extends Component {
 
@@ -31,7 +37,7 @@ class App extends Component {
         // added placeholder values so JSX in CardsPlayed component has something to hang onto, 
         // which then gets replaced with each card that gets played.
         cardsPlayedLastCard: [
-          { suit: "", name: "", value: null, img: AceOfDiamonds }
+          { suit: "", name: "", value: null, img: CardBack }
         ],
         cardsPlayed2ndLastCard: []
         
