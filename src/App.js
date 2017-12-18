@@ -104,11 +104,23 @@ class App extends Component {
     }
   }
 
-  handlePlaySnap(event) {
+  // should give back a 0 or a 1
+  pickBetweenTwo() {
+    return Math.round(Math.random())
+  }
 
-      // check if this.state.gameHasBugun is "yes", if so quit the function with the message "Game has already begun!".
-      // if not, change this.state.gameHasBugun to "yes" and continue. Stops people clicking more than once and resetting the 
-      // the game. 
+  handlePlaySnap(event) {
+    
+    // if this.state.gameHasBugun is "yes", quit the function with the message "Game has already begun!".
+    // else setState of this.state.gameHasBugun to "yes" and continue. Stops people clicking more than once and resetting the 
+    // the game. 
+    
+    if (this.state.gameHasBegun === "yes") {
+        // game has begun message here
+        return
+      } else {
+        this.setState({gameHasBegun: "yes" })
+      }
 
       // randomise this.state.turn to either "player" or "opponent" to determine who goes first.
 
@@ -138,8 +150,8 @@ class App extends Component {
     this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
     this.setState({cardsPlayedLastCard: lastCard})
 
-    // invoke the opponent turn method here, which starts with a delay so that things happen on human timescale rather than 
-    // instantly.
+    // invoke the opponent turn method here, which starts with a setTimeout() delay so that things happen on human timescale 
+    // rather than instantly.
 
   }
 
