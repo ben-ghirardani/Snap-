@@ -3,8 +3,9 @@ import PlayerPosition from './PlayerPosition';
 import OpponentPosition from './OpponentPosition';
 import CardsPlayed from './CardsPlayed';
 import CardBack from './img/CardBack.png';
+
 import AceOfClubs from './img/AceOfClubs.png';
-import AceOfDiamonds from './img/AceOfDiamonds.png';
+import AceOfDiamonds from './img/AceOfDiamonds.png'; 
 import AceOfHearts from './img/AceOfHearts.png';
 import AceOfSpades from './img/AceOfSpades.png';
 import TwoOfClubs from './img/TwoOfClubs.png';
@@ -87,7 +88,9 @@ class App extends Component {
         cardsPlayedLastCard: [
           { suit: "", name: "", value: null, img: CardBack }
         ],
-        cardsPlayed2ndLastCard: []
+        cardsPlayed2ndLastCard: [],
+        turn: null,
+        gameHasBegun: "no"
         
     };
     this.handlePlaySnap = this.handlePlaySnap.bind(this);
@@ -102,7 +105,13 @@ class App extends Component {
   }
 
   handlePlaySnap(event) {
-      console.log("handlePlaySnap was clicked")
+
+      // check if this.state.gameHasBugun is "yes", if so quit the function with the message "Game has already begun!".
+      // if not, change this.state.gameHasBugun to "yes" and continue. Stops people clicking more than once and resetting the 
+      // the game. 
+
+      // randomise this.state.turn to either "player" or "opponent" to determine who goes first.
+
       // shuffle player deck
       let playerDeckToShuffle = this.state.playerDeck;
       this.shuffleDeck(playerDeckToShuffle);
@@ -114,6 +123,9 @@ class App extends Component {
   }
 
   playCard(event) {
+
+    // switch the turn marker.
+
     let deck = this.state.playerDeck;
     let cardPlayed = deck.splice(-1, 1);
     let oldCardsPlayed = this.state.cardsPlayed;
@@ -125,10 +137,14 @@ class App extends Component {
     let lastCard = cardPlayed;
     this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
     this.setState({cardsPlayedLastCard: lastCard})
+
+    // invoke the opponent turn method here, which starts with a delay so that things happen on human timescale rather than 
+    // instantly.
+
   }
 
   // to create - 
-  // method to check if the last two cards in the central pile array match suits do not matter, only value.
+  // method to check if the last two cards in the central pile array match (suits do not matter, only value)
 
   render() {
     return (
@@ -147,8 +163,6 @@ class App extends Component {
         className="opponentPositionMain" 
         opponentDeck={this.state.opponentDeck} 
       />
-      {/* take state for last card etc and access data from them to display in CardsPlayed */}
-      {/* need to show image taken from these objects */}
       <CardsPlayed 
         className="cardsPlayedMain"
         cardsPlayed={this.state.cardsPlayed}
