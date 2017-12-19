@@ -104,26 +104,19 @@ class App extends Component {
     }
   }
 
-  // should give back a 0 or a 1
+  // return a 0 or a 1
   pickBetweenTwo() {
-    return Math.round(Math.random())
+    return ['player', 'opponent'][Math.round(Math.random())]
   }
 
   handlePlaySnap(event) {
-    
-    // if this.state.gameHasBugun is "yes", quit the function with the message "Game has already begun!".
-    // else setState of this.state.gameHasBugun to "yes" and continue. Stops people clicking more than once and resetting the 
-    // the game. 
-    
     if (this.state.gameHasBegun === "yes") {
-        // game has begun message here
+        // change this to an in-game message 
+        console.log("The game has begun!")
         return
       } else {
         this.setState({gameHasBegun: "yes" })
       }
-
-      // randomise this.state.turn to either "player" or "opponent" to determine who goes first.
-
       // shuffle player deck
       let playerDeckToShuffle = this.state.playerDeck;
       this.shuffleDeck(playerDeckToShuffle);
@@ -132,12 +125,16 @@ class App extends Component {
       let opponentDeckToShuffle = this.state.opponentDeck;
       this.shuffleDeck(opponentDeckToShuffle);
       this.setState({ opponentDeck: opponentDeckToShuffle })
+
+      let firstTurn = this.pickBetweenTwo();
+      this.setState({turn: firstTurn})
+      // if it's oppoent turn, invoke opponent turn method, otherwise it's player tun.
   }
 
   playCard(event) {
-
-    // switch the turn marker.
-
+    // check if it's the player's turn, if not, they can't go.
+    // how to stop the player from playing more than one card?
+    // when to switch the turn marker?
     let deck = this.state.playerDeck;
     let cardPlayed = deck.splice(-1, 1);
     let oldCardsPlayed = this.state.cardsPlayed;
@@ -149,7 +146,6 @@ class App extends Component {
     let lastCard = cardPlayed;
     this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
     this.setState({cardsPlayedLastCard: lastCard})
-
     // invoke the opponent turn method here, which starts with a setTimeout() delay so that things happen on human timescale 
     // rather than instantly.
 
