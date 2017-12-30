@@ -91,7 +91,6 @@ class App extends Component {
         cardsPlayed2ndLastCard: [],
         turn: null,
         gameHasBegun: "no"
-        
     };
     this.handlePlaySnap = this.handlePlaySnap.bind(this);
     this.shuffleDeck = this.shuffleDeck.bind(this);
@@ -104,9 +103,32 @@ class App extends Component {
     }
   }
 
+  opponentTurn() {
+    console.log("Opponent will play")
+    // have the timeout variable be an array of possible times, randomly select from them, just to add a random element
+    // to opponent behaviour, otherwise it looks too mechanical.
+    let timeout = 3000;
+    setTimeout(() => {
+      // sequence is very similar to tge way player plays cards. ANy way to re-use the code?
+      let deck = this.state.opponentDeck;
+      let cardPlayed = deck.slice(-1, 1);
+      let oldCardsPlayed = this.state.cardsPlayed
+      let newCardsPlayed = oldCardsPlayed.concat(cardPlayed)
+      this.setState({cardsPlayed: newCardsPlayed});
+      this.setState({opponentDeck: deck});
+      let lastCard = cardPlayed;
+
+      this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
+      this.setState({cardsPlayedLastCard: lastCard})
+      let changeTurn = "player"
+      this.setState({turn: changeTurn})
+      console.log("opponent played after timeout")
+    }, timeout);
+  }
+
   // return a 0 or a 1
   pickBetweenTwo() {
-    return ['player', 'opponent'][Math.round(Math.random())]
+    return ["player", "opponent"][Math.round(Math.random())]
   }
 
   handlePlaySnap(event) {
@@ -127,14 +149,24 @@ class App extends Component {
       this.setState({ opponentDeck: opponentDeckToShuffle })
 
       let firstTurn = this.pickBetweenTwo();
-      this.setState({turn: firstTurn})
-      // if it's oppoent turn, invoke opponent turn method, otherwise it's player tun.
+
+
+      this.setState({turn: firstTurn},
+        function() {
+          if (this.state.turn === "opponent") {
+            this.opponentTurn();    
+          } else {
+            console.log("player goes first")
+          }
+        }
+      )
   }
 
   playCard(event) {
     // check if it's the player's turn, if not, they can't go.
-    // how to stop the player from playing more than one card?
-    // when to switch the turn marker?
+    if (this.state.turn === "opponent") {
+      return
+    }
     let deck = this.state.playerDeck;
     let cardPlayed = deck.splice(-1, 1);
     let oldCardsPlayed = this.state.cardsPlayed;
@@ -146,9 +178,10 @@ class App extends Component {
     let lastCard = cardPlayed;
     this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
     this.setState({cardsPlayedLastCard: lastCard})
-    // invoke the opponent turn method here, which starts with a setTimeout() delay so that things happen on human timescale 
-    // rather than instantly.
-
+    // do I need the variable? Just change it to the string directly?
+    let changeTurn = "opponent"
+    this.setState({turn: changeTurn})
+    this.opponentTurn()
   }
 
   // to create - 
