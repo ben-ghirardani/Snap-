@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PlayerPosition from './PlayerPosition';
 import OpponentPosition from './OpponentPosition';
 import CardsPlayed from './CardsPlayed';
-import CardBack from './img/CardBack.png';
+import CheckForWin from './CheckForWin';
 
+// put all of this into a file and import it from there?
+import CardBack from './img/CardBack.png';
 import AceOfClubs from './img/AceOfClubs.png';
 import AceOfDiamonds from './img/AceOfDiamonds.png'; 
 import AceOfHearts from './img/AceOfHearts.png';
@@ -116,12 +118,6 @@ class App extends Component {
       this.setState({cardsPlayed: newCardsPlayed});
       this.setState({opponentDeck: deck});
       let lastCard = cardPlayed;
-
-      // ***
-      // is this the same problem as the end of handlePlaySnap? State hasn't actually been set yet?
-      // ***
-      // run some console logs to check
-
       this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
       this.setState({cardsPlayedLastCard: lastCard})
       let changeTurn = "player"
@@ -167,8 +163,7 @@ class App extends Component {
   }
 
   playCard(event) {
-    // check if it's the player's turn, if not, they can't go.
-    if (this.state.turn === "opponent") {
+    if (this.state.turn === "opponent" | this.state.turn === null ) {
       return
     }
     let deck = this.state.playerDeck;
@@ -188,8 +183,12 @@ class App extends Component {
     this.opponentTurn()
   }
 
-  // to create - 
-  // method to check if the last two cards in the central pile array match (suits do not matter, only value)
+  // are cardsPlayedLastCard & cardsPlayed2ndLastCard a match?
+  // each is an array containing a single object?
+  checkForWin(event) {
+    console.log("did someone win?!")
+    if (this.state.cardsPlayedLastCard) {}
+  }
 
   render() {
     return (
@@ -214,6 +213,13 @@ class App extends Component {
         cardsPlayedLastCard={this.state.cardsPlayedLastCard}
         cardsPlayed2ndLastCard={this.state.cardsPlayed2ndLastCard}
       />
+
+      <div className="check-for-win">
+      <CheckForWin
+        checkForWin={this.checkForWin.bind(this)}
+      />
+      </div>
+
       </div>
     );  
   }

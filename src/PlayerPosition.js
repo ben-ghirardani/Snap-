@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 class PlayerPosition extends Component {
 
-
-
     render() {
         return (
             <div className="player-container">
