@@ -105,18 +105,22 @@ class App extends Component {
 
   opponentTurn() {
     console.log("Opponent will play")
-    // have the timeout variable be an array of possible times, randomly select from them, just to add a random element
-    // to opponent behaviour, otherwise it looks too mechanical.
+    // timeout to vary, behaviour less predictable?
     let timeout = 3000;
     setTimeout(() => {
-      // sequence is very similar to tge way player plays cards. ANy way to re-use the code?
+      // sequence similar to playCard method. Re-use code?
       let deck = this.state.opponentDeck;
-      let cardPlayed = deck.slice(-1, 1);
-      let oldCardsPlayed = this.state.cardsPlayed
+      let cardPlayed = deck.splice(-1, 1);
+      let oldCardsPlayed = this.state.cardsPlayed;
       let newCardsPlayed = oldCardsPlayed.concat(cardPlayed)
       this.setState({cardsPlayed: newCardsPlayed});
       this.setState({opponentDeck: deck});
       let lastCard = cardPlayed;
+
+      // ***
+      // is this the same problem as the end of handlePlaySnap? State hasn't actually been set yet?
+      // ***
+      // run some console logs to check
 
       this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
       this.setState({cardsPlayedLastCard: lastCard})
