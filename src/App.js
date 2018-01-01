@@ -3,6 +3,8 @@ import PlayerPosition from './PlayerPosition';
 import OpponentPosition from './OpponentPosition';
 import CardsPlayed from './CardsPlayed';
 import CheckForWin from './CheckForWin';
+import TurnMessage from './TurnMessage';
+import WinnerMessage from './WinnerMessage';
 
 // put all of this into a file and import it from there?
 import CardBack from './img/CardBack.png';
@@ -85,14 +87,13 @@ class App extends Component {
           { suit: "Hearts", name: "Ace", value: 1, img: AceOfHearts }, { suit: "Hearts", name: "Two", value: 2, img: TwoOfHearts }, { suit: "Hearts", name: "Three", value: 3, img: ThreeOfHearts }, { suit: "Hearts", name: "Four", value: 4, img: FourOfHearts }, { suit: "Hearts", name: "Five", value: 5, img: FiveOfHearts }, { suit: "Hearts", name: "Six", value: 6, img: SixOfHearts }, { suit: "Hearts", name: "Seven", value: 7, img: SevenOfHearts }, { suit: "Hearts", name: "Eight", value: 8, img: EightOfHearts }, { suit: "Hearts", name: "Nine", value: 9, img: NineOfHearts }, { suit: "Hearts", name: "Ten", value: 10, img: TenOfHearts }, { suit: "Hearts", name: "Jack", value: 11, img: JackOfHearts }, { suit: "Hearts", name: "Queen", value: 12, img: QueenOfHearts }, { suit: "Hearts", name: "King", value: 13, img: KingOfHearts }
         ],
         cardsPlayed: [],
-        // added placeholder values so JSX in CardsPlayed component has something to hang onto, 
-        // which then gets replaced with each card that gets played.
         cardsPlayedLastCard: [
           { suit: "", name: "", value: null, img: CardBack }
         ],
         cardsPlayed2ndLastCard: [],
         turn: null,
-        gameHasBegun: "no"
+        gameHasBegun: "no",
+        winner: ""
     };
     this.handlePlaySnap = this.handlePlaySnap.bind(this);
     this.shuffleDeck = this.shuffleDeck.bind(this);
@@ -111,6 +112,9 @@ class App extends Component {
     let timeout = 3000;
     setTimeout(() => {
       // sequence similar to playCard method. Re-use code?
+      if (this.state.turn === "Game over!") {
+        return
+      } else {
       let deck = this.state.opponentDeck;
       let cardPlayed = deck.splice(-1, 1);
       let oldCardsPlayed = this.state.cardsPlayed;
@@ -120,15 +124,16 @@ class App extends Component {
       let lastCard = cardPlayed;
       this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
       this.setState({cardsPlayedLastCard: lastCard})
-      let changeTurn = "player"
+      let changeTurn = "Player's Turn"
       this.setState({turn: changeTurn})
       console.log("opponent played after timeout")
+      }
     }, timeout);
   }
 
   // return a 0 or a 1
   pickBetweenTwo() {
-    return ["player", "opponent"][Math.round(Math.random())]
+    return ["Player's Turn", "Opponent's Turn"][Math.round(Math.random())]
   }
 
   handlePlaySnap(event) {
@@ -150,10 +155,9 @@ class App extends Component {
 
       let firstTurn = this.pickBetweenTwo();
 
-
       this.setState({turn: firstTurn},
         function() {
-          if (this.state.turn === "opponent") {
+          if (this.state.turn === "Opponent's Turn") {
             this.opponentTurn();    
           } else {
             console.log("player goes first")
@@ -163,7 +167,7 @@ class App extends Component {
   }
 
   playCard(event) {
-    if (this.state.turn === "opponent" | this.state.turn === null ) {
+    if (this.state.turn === "Opponent's Turn" | this.state.turn === null ) {
       return
     }
     let deck = this.state.playerDeck;
@@ -178,16 +182,20 @@ class App extends Component {
     this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
     this.setState({cardsPlayedLastCard: lastCard})
     // do I need the variable? Just change it to the string directly?
-    let changeTurn = "opponent"
+    let changeTurn = "Opponent's Turn"
     this.setState({turn: changeTurn})
     this.opponentTurn()
   }
 
-  // are cardsPlayedLastCard & cardsPlayed2ndLastCard a match?
-  // each is an array containing a single object?
   checkForWin(event) {
-    console.log("did someone win?!")
-    if (this.state.cardsPlayedLastCard) {}
+    if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
+      console.log("they match!")
+      this.setState({turn: "Game over!"})
+      // if statement = if it's opponent's turn, setState of winner to "Opponenet Wins!"
+      // setState of turn after the if statement
+    } else {
+      console.log("they don't match :(")
+    }
   }
 
   render() {
@@ -195,7 +203,11 @@ class App extends Component {
       <div className="App">
       This is Snap!
       <br></br>
-      <button className="playSnap" onClick={this.handlePlaySnap.bind(this)} >Play Snap!</button>
+      <button 
+        className="playSnap" 
+        onClick={this.handlePlaySnap.bind(this)}>
+        Play Snap!
+      </button>
       <br></br>
       <PlayerPosition 
         className="playerPositionMain" 
@@ -219,6 +231,14 @@ class App extends Component {
         checkForWin={this.checkForWin.bind(this)}
       />
       </div>
+
+      <TurnMessage
+        turn={this.state.turn}
+      />
+
+      <WinnerMessage
+        winner={this.state.winner}
+      />
 
       </div>
     );  
