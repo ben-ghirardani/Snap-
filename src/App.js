@@ -6,7 +6,7 @@ import CheckForWin from './CheckForWin';
 import TurnMessage from './TurnMessage';
 import WinnerMessage from './WinnerMessage';
 
-// put all of this into a file and import it from there?
+// possible to put all of this into a file and import it from there?
 import CardBack from './img/CardBack.png';
 import AceOfClubs from './img/AceOfClubs.png';
 import AceOfDiamonds from './img/AceOfDiamonds.png'; 
@@ -109,7 +109,7 @@ class App extends Component {
   opponentTurn() {
     console.log("Opponent will play")
     // timeout to vary, behaviour less predictable?
-    let timeout = 3000;
+    let timeout = 2000;
     setTimeout(() => {
       // sequence similar to playCard method. Re-use code?
       if (this.state.turn === "Game over!") {
@@ -124,21 +124,28 @@ class App extends Component {
       let lastCard = cardPlayed;
       this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
       this.setState({cardsPlayedLastCard: lastCard})
-      let changeTurn = "Player's Turn"
-      this.setState({turn: changeTurn})
-      console.log("opponent played after timeout")
+          if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
+              let timeout = 1000;
+              setTimeout(() => {
+                  this.setState({turn: "Game over!"})
+                  this.setState({winner: "Opponent Wins!!!"})
+              }, timeout);
+          }
+              this.setState({turn: "Player's Turn"})
+              console.log("opponent played after timeout")
+              // include the above message in one of the message components
       }
     }, timeout);
   }
 
-  // return a 0 or a 1
+  // return a 0 or a 1, use it as an index position
   pickBetweenTwo() {
     return ["Player's Turn", "Opponent's Turn"][Math.round(Math.random())]
   }
 
   handlePlaySnap(event) {
     if (this.state.gameHasBegun === "yes") {
-        // change this to an in-game message 
+        // change this to an in-game message, use the WinnerMessage component? Or a new, StatusMessage component? 
         console.log("The game has begun!")
         return
       } else {
@@ -167,7 +174,7 @@ class App extends Component {
   }
 
   playCard(event) {
-    if (this.state.turn === "Opponent's Turn" | this.state.turn === null ) {
+    if (this.state.turn === "Opponent's Turn" | this.state.turn === null | this.state.turn === "Game over!") {
       return
     }
     let deck = this.state.playerDeck;
@@ -176,24 +183,19 @@ class App extends Component {
     let newCardsPlayed = oldCardsPlayed.concat(cardPlayed);
     this.setState({cardsPlayed: newCardsPlayed});
     this.setState({playerDeck: deck});
-    // move state from lastCardFromCardsPlayed to penultimateCardFromCardsPlayed, then update state of last card with 
-    // the card spliced from the end of the deck.
     let lastCard = cardPlayed;
     this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
     this.setState({cardsPlayedLastCard: lastCard})
-    // do I need the variable? Just change it to the string directly?
-    let changeTurn = "Opponent's Turn"
-    this.setState({turn: changeTurn})
+    this.setState({turn: "Opponent's Turn"})
     this.opponentTurn()
   }
 
   checkForWin(event) {
     if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
-      console.log("they match!")
       this.setState({turn: "Game over!"})
-      // if statement = if it's opponent's turn, setState of winner to "Opponenet Wins!"
-      // setState of turn after the if statement
+      this.setState({winner: "You win!"})
     } else {
+      // create a proper message here
       console.log("they don't match :(")
     }
   }
