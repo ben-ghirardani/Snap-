@@ -7,6 +7,7 @@ import TurnMessage from './TurnMessage';
 import WinnerMessage from './WinnerMessage';
 
 // possible to put all of this into a file and import it from there?
+import Blank from './img/Blank.png';
 import CardBack from './img/CardBack.png';
 import AceOfClubs from './img/AceOfClubs.png';
 import AceOfDiamonds from './img/AceOfDiamonds.png'; 
@@ -82,7 +83,7 @@ class App extends Component {
         ],
         cardsPlayed: [],
         cardsPlayedLastCard: [
-          { suit: "", name: "", value: null, img: CardBack }
+          { suit: "", name: "", value: null, img: Blank }
         ],
         cardsPlayed2ndLastCard: [],
         turn: null,
@@ -212,17 +213,14 @@ class App extends Component {
       </button>
       <br></br>
       <PlayerPosition 
-          className="playerPositionMain" 
           playerDeck={this.state.playerDeck}
           playCard={this.playCard.bind(this)}
       />
       <br></br>
       <OpponentPosition 
-          className="opponentPositionMain" 
           opponentDeck={this.state.opponentDeck} 
       />
       <CardsPlayed 
-          className="cardsPlayedMain"
           cardsPlayed={this.state.cardsPlayed}
           cardsPlayedLastCard={this.state.cardsPlayedLastCard}
           cardsPlayed2ndLastCard={this.state.cardsPlayed2ndLastCard}
