@@ -125,11 +125,14 @@ class App extends Component {
       this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
       this.setState({cardsPlayedLastCard: lastCard})
           if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
-              let timeout = 1000;
+              let timeout = 4000;
               setTimeout(() => {
-                  this.setState({turn: "Game over!"})
-                  this.setState({winner: "Opponent Wins!!!"})
-              }, timeout);
+                  if (this.state.turn === "Game over!") {
+                    return
+                  } else {
+                      this.setState({turn: "Game over!"})
+                      this.setState({winner: "Opponent Wins!!!"})
+              }}, timeout);
           }
               this.setState({turn: "Player's Turn"})
               console.log("opponent played after timeout")
@@ -201,45 +204,46 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
-      This is Snap!
+          This is Snap!
       <br></br>
       <button 
-        className="playSnap" 
-        onClick={this.handlePlaySnap.bind(this)}>
-        Play Snap!
+          className="playSnap" 
+          onClick={this.handlePlaySnap.bind(this)}>
+          Play Snap!
       </button>
       <br></br>
       <PlayerPosition 
-        className="playerPositionMain" 
-        playerDeck={this.state.playerDeck}
-        playCard={this.playCard.bind(this)}
+          className="playerPositionMain" 
+          playerDeck={this.state.playerDeck}
+          playCard={this.playCard.bind(this)}
       />
       <br></br>
       <OpponentPosition 
-        className="opponentPositionMain" 
-        opponentDeck={this.state.opponentDeck} 
+          className="opponentPositionMain" 
+          opponentDeck={this.state.opponentDeck} 
       />
       <CardsPlayed 
-        className="cardsPlayedMain"
-        cardsPlayed={this.state.cardsPlayed}
-        cardsPlayedLastCard={this.state.cardsPlayedLastCard}
-        cardsPlayed2ndLastCard={this.state.cardsPlayed2ndLastCard}
+          className="cardsPlayedMain"
+          cardsPlayed={this.state.cardsPlayed}
+          cardsPlayedLastCard={this.state.cardsPlayedLastCard}
+          cardsPlayed2ndLastCard={this.state.cardsPlayed2ndLastCard}
       />
 
       <div className="check-for-win">
       <CheckForWin
-        checkForWin={this.checkForWin.bind(this)}
+          checkForWin={this.checkForWin.bind(this)}
       />
       </div>
 
       <TurnMessage
-        turn={this.state.turn}
+          turn={this.state.turn}
       />
 
       <WinnerMessage
-        winner={this.state.winner}
+          winner={this.state.winner}
       />
 
       </div>
