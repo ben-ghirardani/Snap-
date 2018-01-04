@@ -68,12 +68,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        deckOfCards: [
-          { suit: "Clubs", name: "Ace", value: 1 }, { suit: "Clubs", name: "Two", value: 2 }, { suit: "Clubs", name: "Three", value: 3 }, { suit: "Clubs", name: "Four", value: 4 }, { suit: "Clubs", name: "Five", value: 5 }, { suit: "Clubs", name: "Six", value: 6 }, { suit: "Clubs", name: "Seven", value: 7 }, { suit: "Clubs", name: "Eight", value: 8 }, { suit: "Clubs", name: "Nine", value: 9 }, { suit: "Clubs", name: "Ten", value: 10 }, { suit: "Clubs", name: "Jack", value: 11 }, { suit: "Clubs", name: "Queen", value: 12 }, { suit: "Clubs", name: "King", value: 13},
-          { suit: "Diamonds", name: "Ace", value: 1}, { suit: "Diamonds", name: "Two", value: 2 }, { suit: "Diamonds", name: "Three", value: 3 }, { suit: "Diamonds", name: "Four", value: 4 }, { suit: "Diamonds", name: "Five", value: 5 }, { suit: "Diamonds", name: "Six", value: 6 }, { suit: "Diamonds", name: "Seven", value: 7 }, { suit: "Diamonds", name: "Eight", value: 8 }, { suit: "Diamonds", name: "Nine", value: 9 }, { suit: "Diamonds", name: "Ten", value: 10 }, { suit: "Diamonds", name: "Jack", value: 11 }, { suit: "Diamonds", name: "Queen", value: 12 }, { suit: "Diamonds", name: "King", value: 13 },
-          { suit: "Spades", name: "Ace", value: 1 }, { suit: "Spades", name: "Two", value: 2 }, { suit: "Spades", name: "Three", value: 3 }, { suit: "Spades", name: "Four", value: 4 }, { suit: "Spades", name: "Five", value: 5 }, { suit: "Spades", name: "Six", value: 6 }, { suit: "Spades", name: "Seven", value: 7 }, { suit: "Spades", name: "Eight", value: 8 }, { suit: "Spades", name: "Nine", value: 9 }, { suit: "Spades", name: "Ten", value: 10 }, { suit: "Spades", name: "Jack", value: 11 }, { suit: "Spades", name: "Queen", value: 12 }, { suit: "Spades", name: "King", value: 13 },
-          { suit: "Hearts", name: "Ace", value: 1 }, { suit: "Hearts", name: "Two", value: 2 }, { suit: "Hearts", name: "Three", value: 3 }, { suit: "Hearts", name: "Four", value: 4 }, { suit: "Hearts", name: "Five", value: 5 }, { suit: "Hearts", name: "Six", value: 6 }, { suit: "Hearts", name: "Seven", value: 7}, { suit: "Hearts", name: "Eight", value: 8 }, { suit: "Hearts", name: "Nine", value: 9 }, { suit: "Hearts", name: "Ten", value: 10 }, { suit: "Hearts", name: "Jack", value: 11 }, { suit: "Hearts", name: "Queen", value: 12 }, { suit: "Hearts", name: "King", value: 13 }
-        ],
         playerDeck: [
           { suit: "Clubs", name: "Ace", value: 1, img: AceOfClubs }, { suit: "Clubs", name: "Two", value: 2, img: TwoOfClubs }, { suit: "Clubs", name: "Three", value: 3, img: ThreeOfClubs }, { suit: "Clubs", name: "Four", value: 4, img: FourOfClubs }, { suit: "Clubs", name: "Five", value: 5, img: FiveOfClubs }, { suit: "Clubs", name: "Six", value: 6, img: SixOfClubs }, { suit: "Clubs", name: "Seven", value: 7, img: SevenOfClubs }, { suit: "Clubs", name: "Eight", value: 8, img: EightOfClubs }, { suit: "Clubs", name: "Nine", value: 9, img: NineOfClubs }, { suit: "Clubs", name: "Ten", value: 10, img: TenOfClubs }, { suit: "Clubs", name: "Jack", value: 11, img: JackOfClubs }, { suit: "Clubs", name: "Queen", value: 12, img: QueenOfClubs }, { suit: "Clubs", name: "King", value: 13, img: KingOfClubs},
           { suit: "Diamonds", name: "Ace", value: 1, img: AceOfDiamonds}, { suit: "Diamonds", name: "Two", value: 2, img: TwoOfDiamonds }, { suit: "Diamonds", name: "Three", value: 3, img: ThreeOfDiamonds }, { suit: "Diamonds", name: "Four", value: 4, img: FourOfDiamonds }, { suit: "Diamonds", name: "Five", value: 5, img: FiveOfDiamonds }, { suit: "Diamonds", name: "Six", value: 6, img: SixOfDiamonds }, { suit: "Diamonds", name: "Seven", value: 7, img: SevenOfDiamonds }, { suit: "Diamonds", name: "Eight", value: 8, img: EightOfDiamonds }, { suit: "Diamonds", name: "Nine", value: 9, img: NineOfDiamonds }, { suit: "Diamonds", name: "Ten", value: 10, img: TenOfDiamonds }, { suit: "Diamonds", name: "Jack", value: 11, img: JackOfDiamonds }, { suit: "Diamonds", name: "Queen", value: 12, img: QueenOfDiamonds }, { suit: "Diamonds", name: "King", value: 13, img: KingOfDiamonds },
@@ -100,50 +94,49 @@ class App extends Component {
   }
 
   shuffleDeck(array) {
-    for (let i = array.length -1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
+      for (let i = array.length -1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+      }
   }
 
   opponentTurn() {
-    console.log("Opponent will play")
-    // timeout to vary, behaviour less predictable?
-    let timeout = 2000;
-    setTimeout(() => {
-      // sequence similar to playCard method. Re-use code?
-      if (this.state.turn === "Game over!") {
-        return
-      } else {
-      let deck = this.state.opponentDeck;
-      let cardPlayed = deck.splice(-1, 1);
-      let oldCardsPlayed = this.state.cardsPlayed;
-      let newCardsPlayed = oldCardsPlayed.concat(cardPlayed)
-      this.setState({cardsPlayed: newCardsPlayed});
-      this.setState({opponentDeck: deck});
-      let lastCard = cardPlayed;
-      this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
-      this.setState({cardsPlayedLastCard: lastCard})
-          if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
-              let timeout = 4000;
-              setTimeout(() => {
-                  if (this.state.turn === "Game over!") {
-                    return
-                  } else {
-                      this.setState({turn: "Game over!"})
-                      this.setState({winner: "Opponent Wins!!!"})
-              }}, timeout);
-          }
-              this.setState({turn: "Player's Turn"})
-              console.log("opponent played after timeout")
-              // include the above message in one of the message components
-      }
-    }, timeout);
+      console.log("Opponent will play")
+      // timeout to vary, behaviour less predictable?
+      let timeout = 2000;
+          setTimeout(() => {
+              if (this.state.turn === "Game over!") {
+                  return
+              } else {
+                  let deck = this.state.opponentDeck;
+                  let cardPlayed = deck.splice(-1, 1);
+                  let oldCardsPlayed = this.state.cardsPlayed;
+                  let newCardsPlayed = oldCardsPlayed.concat(cardPlayed)
+                  this.setState({cardsPlayed: newCardsPlayed});
+                  this.setState({opponentDeck: deck});
+                  let lastCard = cardPlayed;
+                  this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
+                  this.setState({cardsPlayedLastCard: lastCard})
+                      if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
+                          let timeout = 2000;
+                          setTimeout(() => {
+                              if (this.state.turn === "Game over!") {
+                                  return
+                              } else {
+                                  this.setState({turn: "Game over!"})
+                                  this.setState({winner: "Opponent Wins!!!"})
+                          }}, timeout);
+                  }
+                      this.setState({turn: "Player's Turn"})
+                      console.log("opponent played after timeout")
+                      // include the above message in one of the message components
+              }
+          }, timeout);
   }
 
   // return a 0 or a 1, use it as an index position
   pickBetweenTwo() {
-    return ["Player's Turn", "Opponent's Turn"][Math.round(Math.random())]
+      return ["Player's Turn", "Opponent's Turn"][Math.round(Math.random())]
   }
 
   handlePlaySnap(event) {
@@ -166,40 +159,43 @@ class App extends Component {
       let firstTurn = this.pickBetweenTwo();
 
       this.setState({turn: firstTurn},
-        function() {
-          if (this.state.turn === "Opponent's Turn") {
-            this.opponentTurn();    
-          } else {
-            console.log("player goes first")
+          function() {
+              if (this.state.turn === "Opponent's Turn") {
+                  this.opponentTurn();    
+              } else {
+                  console.log("player goes first")
+              }
           }
-        }
       )
   }
 
   playCard(event) {
-    if (this.state.turn === "Opponent's Turn" | this.state.turn === null | this.state.turn === "Game over!") {
-      return
-    }
-    let deck = this.state.playerDeck;
-    let cardPlayed = deck.splice(-1, 1);
-    let oldCardsPlayed = this.state.cardsPlayed;
-    let newCardsPlayed = oldCardsPlayed.concat(cardPlayed);
-    this.setState({cardsPlayed: newCardsPlayed});
-    this.setState({playerDeck: deck});
-    let lastCard = cardPlayed;
-    this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
-    this.setState({cardsPlayedLastCard: lastCard})
-    this.setState({turn: "Opponent's Turn"})
-    this.opponentTurn()
+      if (this.state.turn === "Opponent's Turn" | this.state.turn === null | this.state.turn === "Game over!") {
+          return
+      } else if (this.state.playerDeck.lenth === 0 && this.state.opponentDeck.length === 0) {
+            this.setState({turn: "Game over!"})
+            this.setState({winner: "It's a draw!"})
+      } 
+          let deck = this.state.playerDeck;
+          let cardPlayed = deck.splice(-1, 1);
+          let oldCardsPlayed = this.state.cardsPlayed;
+          let newCardsPlayed = oldCardsPlayed.concat(cardPlayed);
+          this.setState({cardsPlayed: newCardsPlayed});
+          this.setState({playerDeck: deck});
+          let lastCard = cardPlayed;
+          this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
+          this.setState({cardsPlayedLastCard: lastCard})
+          this.setState({turn: "Opponent's Turn"})
+          this.opponentTurn()
   }
 
   checkForWin(event) {
-    if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
-      this.setState({turn: "Game over!"})
-      this.setState({winner: "You win!"})
-    } else {
+      if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
+          this.setState({turn: "Game over!"})
+          this.setState({winner: "You win!"})
+      } else {
       // create a proper message here
-      console.log("they don't match :(")
+          console.log("they don't match :(")
     }
   }
 
@@ -207,7 +203,7 @@ class App extends Component {
 
     return (
       <div className="App">
-          This is Snap!
+          <h1 className="heading">This is Snap!</h1>
       <br></br>
       <button 
           className="playSnap" 
