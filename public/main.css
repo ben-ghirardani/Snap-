@@ -2,13 +2,22 @@
     position: relative
 }
 
+.turn-message {
+    text-align: center
+}
+
 .player-container {
     border-radius: 1px;
     border-style: solid;
     border-color: black;
     background: lightgreen;
     height: 180px;
-    width: 150px
+    width: 150px;
+    position: fixed;
+    top: 75%;
+    left: 70%;
+    margin-top: -50px;
+    margin-left: -100px;
 }
 
 .opponent-container {
@@ -17,21 +26,38 @@
     border-color: black;
     background: darkgreen;
     height: 180px;
-    width: 150px
+    width: 150px;
+    position: fixed;
+    top: 25%;
+    left: 30%;
+    margin-top: -50px;
+    margin-left: -100px;
 }
 
 .cardsPlayed {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     height: 180px;
-    width: 150px
+    width: 150px;
+    /* negative margin-top of half the height, negative margin-left of half the width the centre the component */
+    /* otherwise the top left corner is centered */
+    margin-top: -90px;
+    margin-left: -75px;
 }
 
 .playSnap {
-    border-radius: 1px;
+    border-radius: 25px;
     border-style: solid;
     border-color: black;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    font-size: 20px;
+    color: white;
+    background-color: black;
 }
 
 .playCard {
@@ -41,17 +67,14 @@
 }
 
 .check-for-win {
-    position: absolute;
-    right: 80px;
-    top: 100px;
     height: 40px;
     width: 140px;
     border-radius: 1px;
     border-style: solid;
     border-color: black;
-}
-
-.heading {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: center
+    position: fixed;
+    top: 40%;
+    left: 70%;
+    margin-top: -50px;
+    margin-left: -100px;
 }

@@ -4,7 +4,7 @@ class TurnMessage extends Component {
 
     render() {
         return(
-            <div>
+            <div className="turn-message">
                 {this.props.turn}
             </div>
         )

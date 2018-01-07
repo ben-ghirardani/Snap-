@@ -102,6 +102,7 @@ class App extends Component {
   }
 
   opponentTurn() {
+    //   change this to a component message
       console.log("Opponent will play")
       // timeout to vary, behaviour less predictable?
       let timeout = 2000;
@@ -204,13 +205,17 @@ class App extends Component {
 
     return (
       <div className="App">
-          <h1 className="heading">This is Snap!</h1>
-      <br></br>
+
       <button 
           className="playSnap" 
           onClick={this.handlePlaySnap.bind(this)}>
           Play Snap!
       </button>
+
+      <TurnMessage
+          turn={this.state.turn}
+      />
+
       <br></br>
       <PlayerPosition 
           playerDeck={this.state.playerDeck}
@@ -231,10 +236,6 @@ class App extends Component {
           checkForWin={this.checkForWin.bind(this)}
       />
       </div>
-
-      <TurnMessage
-          turn={this.state.turn}
-      />
 
       <WinnerMessage
           winner={this.state.winner}
