@@ -10,7 +10,6 @@ class CardsPlayed extends Component {
         )
     } 
     
-
 }
 
 export default CardsPlayed;

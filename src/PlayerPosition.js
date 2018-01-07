@@ -7,9 +7,9 @@ class PlayerPosition extends Component {
             <div className="player-container">
             Your Deck
             <br></br>
-            <div> Cards Remaining: {this.props.playerDeck.length} </div>
+            <img className="player-deck-top" src={this.props.playerDeckTop} />
             <br></br>
-            <img src={this.props.playerDeckTop} />
+            <div> Cards Remaining: {this.props.playerDeck.length} </div>
             <button className="playCard" onClick={this.props.playCard}>Play a card</button>
             </div>
         );

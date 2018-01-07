@@ -177,9 +177,7 @@ class App extends Component {
           function() {
               if (this.state.turn === "Opponent's Turn") {
                   this.opponentTurn();    
-              } else {
-                  console.log("player goes first")
-              }
+              } 
           }
       )
   }

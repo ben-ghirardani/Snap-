@@ -21,9 +21,6 @@
 }
 
 .player-container {
-    border-radius: 1px;
-    border-style: solid;
-    border-color: black;
     height: 180px;
     width: 150px;
     position: fixed;
@@ -40,9 +37,6 @@
 }
 
 .opponent-container {
-    border-radius: 1px;
-    border-style: solid;
-    border-color: black;
     height: 180px;
     width: 150px;
     position: fixed;
@@ -62,7 +56,6 @@
     /* otherwise the top left corner is centered */
     margin-top: -90px;
     margin-left: -75px;
-    /* background-color: aqua; */
 }
 
 .card {
@@ -108,4 +101,18 @@
     height: 40px;
     width: 120px;
     font-size: 20px;
+}
+
+.player-deck-top {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 90%;
+}
+
+.opponent-deck-top {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 90%;
 }
