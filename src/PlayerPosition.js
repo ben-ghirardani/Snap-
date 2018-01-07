@@ -5,7 +5,7 @@ class PlayerPosition extends Component {
     render() {
         return (
             <div className="player-container">
-            Player Container
+            Your Deck
             <br></br>
             <div> Cards Remaining: {this.props.playerDeck.length} </div>
             <br></br>

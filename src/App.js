@@ -129,7 +129,7 @@ class App extends Component {
                                   this.setState({winner: "Opponent Wins!!!"})
                           }}, timeout);
                   }
-                      this.setState({turn: "Player's Turn"})
+                      this.setState({turn: "Your Turn"})
                       console.log("opponent played after timeout")
                       // include the above message in one of the message components
               }
@@ -138,7 +138,7 @@ class App extends Component {
 
   // return a 0 or a 1, use it as an index position
   pickBetweenTwo() {
-      return ["Player's Turn", "Opponent's Turn"][Math.round(Math.random())]
+      return ["Your Turn", "Opponent's Turn"][Math.round(Math.random())]
   }
 
   handlePlaySnap(event) {
@@ -203,45 +203,42 @@ class App extends Component {
 
   render() {
 
-    return (
-      <div className="App">
+        return (
+            <div className="App">
 
-      <button 
-          className="playSnap" 
-          onClick={this.handlePlaySnap.bind(this)}>
-          Play Snap!
-      </button>
+            <button 
+                className="play-snap" 
+                onClick={this.handlePlaySnap.bind(this)}>
+                Play Snap!
+            </button>
 
-      <TurnMessage
-          turn={this.state.turn}
-      />
+            <div className="message-centre">
+                <TurnMessage
+                    turn={this.state.turn}
+                />
+                <WinnerMessage
+                winner={this.state.winner}
+                />
+            </div>
 
-      <br></br>
-      <PlayerPosition 
-          playerDeck={this.state.playerDeck}
-          playCard={this.playCard.bind(this)}
-      />
-      <br></br>
-      <OpponentPosition 
-          opponentDeck={this.state.opponentDeck} 
-      />
-      <CardsPlayed 
-          cardsPlayed={this.state.cardsPlayed}
-          cardsPlayedLastCard={this.state.cardsPlayedLastCard}
-          cardsPlayed2ndLastCard={this.state.cardsPlayed2ndLastCard}
-      />
+            <PlayerPosition 
+                playerDeck={this.state.playerDeck}
+                playCard={this.playCard.bind(this)}
+            />
+            
+            <OpponentPosition 
+                opponentDeck={this.state.opponentDeck} 
+            />
+            <CardsPlayed 
+                cardsPlayed={this.state.cardsPlayed}
+                cardsPlayedLastCard={this.state.cardsPlayedLastCard}
+                cardsPlayed2ndLastCard={this.state.cardsPlayed2ndLastCard}
+            />
 
-      <div className="check-for-win">
-      <CheckForWin
-          checkForWin={this.checkForWin.bind(this)}
-      />
-      </div>
-
-      <WinnerMessage
-          winner={this.state.winner}
-      />
-
-      </div>
+            <CheckForWin
+                checkForWin={this.checkForWin.bind(this)}
+            />
+            </div>
     );  
   }
 }

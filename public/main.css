@@ -2,39 +2,57 @@
     position: relative
 }
 
+.message-centre {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    height: 40px;
+    width: 200px;
+    margin-top: -20px;
+    margin-left: -100px;
+}
+
 .turn-message {
-    text-align: center
+    text-align: center;
+}
+
+.winner-message {
+    text-align: center;
 }
 
 .player-container {
     border-radius: 1px;
     border-style: solid;
     border-color: black;
-    background: lightgreen;
     height: 180px;
     width: 150px;
     position: fixed;
     top: 75%;
-    left: 70%;
-    margin-top: -50px;
-    margin-left: -100px;
+    left: 65%;
+    margin-top: -90px;
+    margin-left: -75px;
+}
+
+.playCard {
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
 }
 
 .opponent-container {
     border-radius: 1px;
     border-style: solid;
     border-color: black;
-    background: darkgreen;
     height: 180px;
     width: 150px;
     position: fixed;
     top: 25%;
     left: 30%;
-    margin-top: -50px;
-    margin-left: -100px;
+    margin-top: -90px;
+    margin-left: -75px;
 }
 
-.cardsPlayed {
+.cards-played {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -44,26 +62,23 @@
     /* otherwise the top left corner is centered */
     margin-top: -90px;
     margin-left: -75px;
+    background-color: aqua;
 }
 
-.playSnap {
+.play-snap {
     border-radius: 25px;
     border-style: solid;
     border-color: black;
     position: fixed;
-    top: 10%;
+    top: 5%;
     left: 50%;
-    margin-top: -50px;
-    margin-left: -100px;
+    height: 40px;
+    width: 120px;
+    margin-top: -20px;
+    margin-left: -60px;
     font-size: 20px;
     color: white;
     background-color: black;
-}
-
-.playCard {
-    border-radius: 1px;
-    border-style: solid;
-    border-color: black;
 }
 
 .check-for-win {

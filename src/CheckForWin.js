@@ -4,7 +4,9 @@ class CheckForWin extends Component {
 
     render() {
         return(
-            <button onClick={this.props.checkForWin}>Snap?</button>
+            <div className="check-for-win">
+                <button onClick={this.props.checkForWin}>Snap?</button>
+            </div>
         )
     }
 

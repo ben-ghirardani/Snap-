@@ -4,7 +4,7 @@ class WinnerMessage extends Component {
     
     render() {
         return(
-            <div>
+            <div className="winner-message">
                 {this.props.winner}
             </div>
         )
