@@ -5,7 +5,7 @@ class CardsPlayed extends Component {
     render() {
         return(
             <div className="cards-played">
-                <img src={this.props.cardsPlayedLastCard[0].img} alt={"img unavailable"} />
+                <img className="card" src={this.props.cardsPlayedLastCard[0].img} alt={"img unavailable"} />
             </div>
         )
     } 

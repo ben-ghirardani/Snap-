@@ -62,7 +62,14 @@
     /* otherwise the top left corner is centered */
     margin-top: -90px;
     margin-left: -75px;
-    background-color: aqua;
+    /* background-color: aqua; */
+}
+
+.card {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 90%;
 }
 
 .play-snap {
@@ -84,12 +91,21 @@
 .check-for-win {
     height: 40px;
     width: 140px;
-    border-radius: 1px;
-    border-style: solid;
-    border-color: black;
     position: fixed;
     top: 40%;
     left: 70%;
     margin-top: -50px;
     margin-left: -100px;
+}
+
+.check-for-win-button {
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    position: fixed;
+    color: white;
+    background-color: black;
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
 }

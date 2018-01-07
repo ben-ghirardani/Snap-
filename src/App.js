@@ -88,7 +88,9 @@ class App extends Component {
         cardsPlayed2ndLastCard: [],
         turn: null,
         gameHasBegun: "no",
-        winner: ""
+        winner: "",
+        playerDeckTop: CardBack,
+        opponentDeckTop: CardBack
     };
     this.handlePlaySnap = this.handlePlaySnap.bind(this);
     this.shuffleDeck = this.shuffleDeck.bind(this);
@@ -101,9 +103,23 @@ class App extends Component {
       }
   }
 
+  checkPlayerDeckLength(array) {
+        if (array.length >0) {
+            return
+        } else {
+            this.setState({playerDeckTop: null})
+        }
+  }
+
+  checkOpponentDeckLength(array) {
+      if (array.length >0) {
+          return
+      } else {
+          this.setState({opponentDeckTop: null})
+      }
+  }
+
   opponentTurn() {
-    //   change this to a component message
-      console.log("Opponent will play")
       // timeout to vary, behaviour less predictable?
       let timeout = 2000;
           setTimeout(() => {
@@ -119,6 +135,7 @@ class App extends Component {
                   let lastCard = cardPlayed;
                   this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
                   this.setState({cardsPlayedLastCard: lastCard})
+                  this.checkOpponentDeckLength(this.state.opponentDeck)
                       if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
                           let timeout = 2000;
                           setTimeout(() => {
@@ -130,8 +147,6 @@ class App extends Component {
                           }}, timeout);
                   }
                       this.setState({turn: "Your Turn"})
-                      console.log("opponent played after timeout")
-                      // include the above message in one of the message components
               }
           }, timeout);
   }
@@ -143,8 +158,6 @@ class App extends Component {
 
   handlePlaySnap(event) {
     if (this.state.gameHasBegun === "yes") {
-        // change this to an in-game message, use the WinnerMessage component? Or a new, StatusMessage component? 
-        console.log("The game has begun!")
         return
       } else {
         this.setState({gameHasBegun: "yes" })
@@ -187,6 +200,7 @@ class App extends Component {
           let lastCard = cardPlayed;
           this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
           this.setState({cardsPlayedLastCard: lastCard})
+          this.checkPlayerDeckLength(this.state.playerDeck)
           this.setState({turn: "Opponent's Turn"})
           this.opponentTurn()
   }
@@ -224,10 +238,12 @@ class App extends Component {
             <PlayerPosition 
                 playerDeck={this.state.playerDeck}
                 playCard={this.playCard.bind(this)}
+                playerDeckTop={this.state.playerDeckTop}
             />
             
             <OpponentPosition 
                 opponentDeck={this.state.opponentDeck} 
+                opponentDeckTop={this.state.opponentDeckTop}
             />
             <CardsPlayed 
                 cardsPlayed={this.state.cardsPlayed}

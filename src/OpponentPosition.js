@@ -7,7 +7,10 @@ class OpponentPosition extends Component {
     render() {
         return(
             <div className="opponent-container">
-            Opponent Container
+                Opponent Deck
+                <br></br>
+                <div>Cards Remaining: {this.props.opponentDeck.length} </div>
+                <img src={this.props.opponentDeckTop} />
             </div>
         );
     }
