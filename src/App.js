@@ -6,6 +6,8 @@ import CheckForWin from './CheckForWin';
 import TurnMessage from './TurnMessage';
 import WinnerMessage from './WinnerMessage';
 
+// import CardImages from './CardImages';
+
 // possible to put all of this into a file and import it from there?
 import Blank from './img/Blank.png';
 import CardBack from './img/CardBack.png';
@@ -162,11 +164,11 @@ class App extends Component {
       } else {
         this.setState({gameHasBegun: "yes" })
       }
-      // shuffle player deck
+
       let playerDeckToShuffle = this.state.playerDeck;
       this.shuffleDeck(playerDeckToShuffle);
       this.setState({ playerDeck: playerDeckToShuffle })
-      // shuffle opponent deck
+     
       let opponentDeckToShuffle = this.state.opponentDeck;
       this.shuffleDeck(opponentDeckToShuffle);
       this.setState({ opponentDeck: opponentDeckToShuffle })
