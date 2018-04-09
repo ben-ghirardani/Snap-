@@ -63,8 +63,6 @@ import KingOfClubs from './img/KingOfClubs.png';
 import KingOfDiamonds from './img/KingOfDiamonds.png';
 import KingOfHearts from './img/KingOfHearts.png';
 import KingOfSpades from './img/KingOfSpades.png';
-import Joker1 from './img/Joker1.png';
-import Joker2 from './img/Joker2.png';
 
 class App extends Component {
 
@@ -219,7 +217,7 @@ class App extends Component {
 
         return (
             <div className="App">
-
+            <h1>SNAP!</h1>
             <button 
                 className="play-snap" 
                 onClick={this.handlePlaySnap.bind(this)}>

@@ -24,8 +24,8 @@
     height: 180px;
     width: 150px;
     position: fixed;
-    top: 75%;
-    left: 65%;
+    top: 40%;
+    left: 20%;
     margin-top: -90px;
     margin-left: -75px;
 }
@@ -40,15 +40,15 @@
     height: 180px;
     width: 150px;
     position: fixed;
-    top: 25%;
-    left: 30%;
+    top: 40%;
+    left: 80%;
     margin-top: -90px;
     margin-left: -75px;
 }
 
 .cards-played {
     position: fixed;
-    top: 50%;
+    top: 43%;
     left: 50%;
     height: 180px;
     width: 150px;
