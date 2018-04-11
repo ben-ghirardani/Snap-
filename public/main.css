@@ -1,5 +1,11 @@
+/* move related elements nearer each other */
+
 .App {
     position: relative
+}
+
+.main-title {
+    text-align: center
 }
 
 .message-centre {
@@ -28,6 +34,28 @@
     left: 20%;
     margin-top: -90px;
     margin-left: -75px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    text-align: center
+}
+
+.cards-remaining {
+    position: absolute;
+    font-size: 4em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.65;
+}
+
+.opponent-cards-remaining {
+    position: absolute;
+    font-size: 4em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.65;
 }
 
 .playCard {
@@ -44,6 +72,9 @@
     left: 80%;
     margin-top: -90px;
     margin-left: -75px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px
 }
 
 .cards-played {
@@ -66,16 +97,16 @@
 }
 
 .play-snap {
-    border-radius: 25px;
+    /* border-radius: 25px; */
     border-style: solid;
     border-color: black;
     position: fixed;
-    top: 5%;
-    left: 50%;
+    /* top: 5%; */
+    /* left: 50%; */
     height: 40px;
     width: 120px;
-    margin-top: -20px;
-    margin-left: -60px;
+    /* margin-top: -20px;
+    margin-left: -60px; */
     font-size: 20px;
     color: white;
     background-color: black;
@@ -106,13 +137,22 @@
 .player-deck-top {
     display: block;
     margin: auto;
-    width: 80%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
 }
 
 .opponent-deck-top {
     display: block;
     margin: auto;
-    width: 80%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
+}
+
+/* use this to move header across */
+.player-header {
+    position: absolute
+}
+
+.opponent-header {
+    position: absolute
 }

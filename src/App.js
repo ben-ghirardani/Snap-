@@ -217,7 +217,7 @@ class App extends Component {
 
         return (
             <div className="App">
-            <h1>SNAP!</h1>
+            <h1 className="main-title">SNAP!</h1>
             <button 
                 className="play-snap" 
                 onClick={this.handlePlaySnap.bind(this)}>
