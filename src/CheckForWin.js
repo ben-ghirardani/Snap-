@@ -9,7 +9,6 @@ class CheckForWin extends Component {
             </div>
         )
     }
-
 }
 
 export default CheckForWin;

@@ -6,8 +6,6 @@ import CheckForWin from './CheckForWin';
 import TurnMessage from './TurnMessage';
 import WinnerMessage from './WinnerMessage';
 
-// import CardImages from './CardImages';
-
 // possible to put all of this into a file and import it from there?
 import Blank from './img/Blank.png';
 import CardBack from './img/CardBack.png';
@@ -216,13 +214,15 @@ class App extends Component {
   render() {
 
         return (
-            <div className="App">
-            <h1 className="main-title">SNAP!</h1>
+            <div className="App" style={ { backgroundImage: 'url(' + require('./img/Background.png') + ')' } } >
+            
+            <div className="center-play-snap">
             <button 
                 className="play-snap" 
                 onClick={this.handlePlaySnap.bind(this)}>
                 Play Snap!
             </button>
+            </div>
 
             <div className="message-centre">
                 <TurnMessage
@@ -233,6 +233,7 @@ class App extends Component {
                 />
             </div>
 
+            <div className="flex-container-1">
             <PlayerPosition 
                 playerDeck={this.state.playerDeck}
                 playCard={this.playCard.bind(this)}
@@ -248,6 +249,7 @@ class App extends Component {
                 cardsPlayedLastCard={this.state.cardsPlayedLastCard}
                 cardsPlayed2ndLastCard={this.state.cardsPlayed2ndLastCard}
             />
+            </div>
 
             <CheckForWin
                 checkForWin={this.checkForWin.bind(this)}
