@@ -1,68 +1,402 @@
-/* move related elements nearer each other */
+/* mobile / very small devices 600px and down */
+@media screen and (max-width: 600px) {
+    
+    .cards-remaining {
+        position: absolute;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: fuchsia;
+        opacity: 1.0;
+    }
+
+    .player-container {
+        height: 90px;
+        width: 75px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -45px;
+        margin-left: -37.5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        text-align: center;
+    }
+
+    .playCard {
+        height: 90px;
+        width: 75px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -45px;
+        margin-left: -37.5px;
+        border-width: 1px;
+        opacity: 0.0;
+    }
+
+    .cards-played {
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        height: 90px;
+        width: 75px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -45px;
+        margin-left: -37.5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+    }
+    
+    /* lives in .cards-played */
+    .card {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .opponent-container {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 80%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px
+    }
+
+}
+
+/* small devices 600px up */
+@media screen and (min-width: 600px) {
+
+    .cards-remaining {
+        position: absolute;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: darkslateblue;
+        opacity: 1.0;
+    }
+
+    .player-container {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        text-align: center;
+    }
+
+    .playCard {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-width: 1px;
+        opacity: 0.0;
+    }
+
+    .cards-played {
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        height: 180px;
+        width: 150px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+    }
+    
+    /* lives in .cards-played */
+    .card {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .opponent-container {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 80%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px
+    }
+
+}
+
+/* medium devices 768px and up */
+@media screen and (min-width: 768px) {
+
+    .cards-remaining {
+        position: absolute;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: darkgreen;
+        opacity: 1.0;
+    }
+
+    .player-container {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        text-align: center;
+    }
+
+    .playCard {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-width: 1px;
+        opacity: 0.0;
+    }
+
+    .cards-played {
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        height: 180px;
+        width: 150px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+    }
+    
+    /* lives in .cards-played */
+    .card {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .opponent-container {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 80%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px
+    }
+
+}
+
+/* large devices 992px and up */
+@media screen and (min-width: 992px) {
+
+    .cards-remaining {
+        position: absolute;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: coral;
+        opacity: 1.0;
+    }
+
+    .player-container {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        text-align: center;
+    }
+
+    .playCard {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-width: 1px;
+        opacity: 0.0;
+    }
+
+    .cards-played {
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        height: 180px;
+        width: 150px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+    }
+    
+    /* lives in .cards-played */
+    .card {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .opponent-container {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 80%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px
+    }
+
+}
+
+/* very large devices 1200px and up */
+@media screen and (min-width: 1200px) {
+
+    .cards-remaining {
+        position: absolute;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: blue;
+        opacity: 1.0;
+    }
+
+    .player-container {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        text-align: center;
+    }
+
+    .playCard {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-width: 1px;
+        opacity: 0.0;
+    }
+
+    .cards-played {
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        height: 180px;
+        width: 150px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+    }
+    
+    /* lives in .cards-played */
+    .card {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .opponent-container {
+        height: 180px;
+        width: 150px;
+        position: fixed;
+        top: 40%;
+        left: 80%;
+        margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px
+    }
+
+}
+
+/* generic css takes over if it can */
+/* generic */
+/* generic */
+/* generic */
+/* generic */
+/* generic */
 
 .App {
     height: 100%;
-    /* background-image: './src/img/Background.png'; */
 }
 
-/* remove CSS below to let flex take over? */
 .flex-container-1 {
     display: flex;
     flex-wrap: nowrap;
-}
-
-.player-container {
-    height: 180px;
-    width: 150px;
-    position: fixed;
-    top: 40%;
-    left: 20%;
-    margin-top: -90px;
-    margin-left: -75px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    text-align: center;
-}
-
-.playCard {
-    height: 180px;
-    width: 150px;
-    position: fixed;
-    top: 40%;
-    left: 20%;
-    margin-top: -90px;
-    margin-left: -75px;
-    border-width: 1px;
-    opacity: 0.0;
-}
-
-.opponent-container {
-    height: 180px;
-    width: 150px;
-    position: fixed;
-    top: 40%;
-    left: 80%;
-    margin-top: -90px;
-    margin-left: -75px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px
-}
-
-.cards-played {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    height: 180px;
-    width: 150px;
-    /* negative margin-top of half the height, negative margin-left of half the width the centre the component */
-    /* otherwise the top left corner is centered */
-    margin-top: -90px;
-    margin-left: -75px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
 }
 
 .message-centre {
@@ -83,15 +417,6 @@
     text-align: center;
 }
 
-.cards-remaining {
-    position: absolute;
-    font-size: 4em;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.45;
-}
-
 .opponent-cards-remaining {
     position: absolute;
     font-size: 4em;
@@ -99,13 +424,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.45;
-}
-
-.card {
-    display: block;
-    margin: auto;
-    width: 100%;
-    height: 100%;
 }
 
 .center-play-snap {
@@ -145,14 +463,16 @@
     border-radius: 25px;
     border-style: solid;
     border-color: black;
-    /* position: fixed; */
-    /* align-items: center; */
     color: white;
     background-color: black;
     height: 40px;
     width: 120px;
     font-size: 20px;
 }
+
+
+
+/* can stay generic */
 
 .player-deck-top {
     display: block;

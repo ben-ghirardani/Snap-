@@ -5,6 +5,7 @@ import CardsPlayed from './CardsPlayed';
 import CheckForWin from './CheckForWin';
 import TurnMessage from './TurnMessage';
 import WinnerMessage from './WinnerMessage';
+import NoMatchMessage from './NoMatchMessage';
 
 // possible to put all of this into a file and import it from there?
 import Blank from './img/Blank.png';
@@ -230,6 +231,9 @@ class App extends Component {
                 />
                 <WinnerMessage
                 winner={this.state.winner}
+                />
+                <NoMatchMessage
+
                 />
             </div>
 
