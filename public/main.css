@@ -15,8 +15,8 @@
         height: 90px;
         width: 75px;
         position: fixed;
-        top: 40%;
-        left: 20%;
+        top: 80%;
+        left: 50%;
         margin-top: -45px;
         margin-left: -37.5px;
         border-style: solid;
@@ -25,21 +25,22 @@
         text-align: center;
     }
 
+    /* must match location of .player-container */
     .playCard {
         height: 90px;
         width: 75px;
         position: fixed;
-        top: 40%;
-        left: 20%;
+        top: 80%;
+        left: 50%;
         margin-top: -45px;
         margin-left: -37.5px;
         border-width: 1px;
         opacity: 0.0;
     }
 
-    .cards-played {
+    .cards-played-visible {
         position: fixed;
-        top: 40%;
+        top: 50%;
         left: 50%;
         height: 90px;
         width: 75px;
@@ -51,6 +52,22 @@
         border-color: black;
         border-width: 1px;
     }
+
+    .cards-played-not-visible {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        height: 90px;
+        width: 75px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -45px;
+        margin-left: -37.5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        opacity: 0.0;
+    }
     
     /* lives in .cards-played */
     .card {
@@ -61,13 +78,13 @@
     }
 
     .opponent-container {
-        height: 180px;
-        width: 150px;
+        height: 90px;
+        width: 75px;
         position: fixed;
-        top: 40%;
-        left: 80%;
-        margin-top: -90px;
-        margin-left: -75px;
+        top: 20%;
+        left: 50%;
+        margin-top: -45px;
+        margin-left: -37.5px;
         border-style: solid;
         border-color: black;
         border-width: 1px
@@ -391,12 +408,7 @@
 /* generic */
 
 .App {
-    height: 100%;
-}
-
-.flex-container-1 {
-    display: flex;
-    flex-wrap: nowrap;
+    height: 2000px;
 }
 
 .message-centre {

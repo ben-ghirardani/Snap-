@@ -89,7 +89,8 @@ class App extends Component {
         gameHasBegun: "no",
         winner: "",
         playerDeckTop: CardBack,
-        opponentDeckTop: CardBack
+        opponentDeckTop: CardBack,
+        cardsPlayedVisible: false,
     };
     this.handlePlaySnap = this.handlePlaySnap.bind(this);
     this.shuffleDeck = this.shuffleDeck.bind(this);
@@ -130,6 +131,7 @@ class App extends Component {
                   let oldCardsPlayed = this.state.cardsPlayed;
                   let newCardsPlayed = oldCardsPlayed.concat(cardPlayed)
                   this.setState({cardsPlayed: newCardsPlayed});
+                  this.setState({cardsPlayedVisible: true})
                   this.setState({opponentDeck: deck});
                   let lastCard = cardPlayed;
                   this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
@@ -198,6 +200,7 @@ class App extends Component {
           this.setState({cardsPlayed2ndLastCard: this.state.cardsPlayedLastCard})
           this.setState({cardsPlayedLastCard: lastCard})
           this.checkPlayerDeckLength(this.state.playerDeck)
+          this.setState({cardsPlayedVisible: true})
           this.setState({turn: "Opponent's Turn"})
           this.opponentTurn()
   }
@@ -215,7 +218,7 @@ class App extends Component {
   render() {
 
         return (
-            <div className="App" style={ { backgroundImage: 'url(' + require('./img/Background.png') + ')' } } >
+            <div className="App" style={ { backgroundImage: 'url(' + require('./img/Background.png') + ')' } }>
             
             <div className="center-play-snap">
             <button 
@@ -237,7 +240,6 @@ class App extends Component {
                 />
             </div>
 
-            <div className="flex-container-1">
             <PlayerPosition 
                 playerDeck={this.state.playerDeck}
                 playCard={this.playCard.bind(this)}
@@ -248,12 +250,12 @@ class App extends Component {
                 opponentDeck={this.state.opponentDeck} 
                 opponentDeckTop={this.state.opponentDeckTop}
             />
-            <CardsPlayed 
+            <CardsPlayed
+                cardsPlayedVisible={this.state.cardsPlayedVisible}
                 cardsPlayed={this.state.cardsPlayed}
                 cardsPlayedLastCard={this.state.cardsPlayedLastCard}
                 cardsPlayed2ndLastCard={this.state.cardsPlayed2ndLastCard}
             />
-            </div>
 
             <CheckForWin
                 checkForWin={this.checkForWin.bind(this)}
