@@ -69,7 +69,7 @@
         opacity: 0.0;
     }
     
-    /* lives in .cards-played */
+    /* lives in .cards-played-visible/not-visible */
     .card {
         display: block;
         margin: auto;
@@ -143,6 +143,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
         opacity: 1.0;
     }
     
@@ -170,11 +171,11 @@
 
     .cards-remaining {
         position: absolute;
-        font-size: 4em;
+        font-size: 3em;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: darkslateblue;
+        color: black;
         opacity: 1.0;
     }
 
@@ -316,11 +317,11 @@
 
     .cards-remaining {
         position: absolute;
-        font-size: 4em;
+        font-size: 3em;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: darkgreen;
+        color: black;
         opacity: 1.0;
     }
 
@@ -462,11 +463,11 @@
 
     .cards-remaining {
         position: absolute;
-        font-size: 4em;
+        font-size: 3em;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: coral;
+        color: black;
         opacity: 1.0;
     }
 
@@ -496,9 +497,24 @@
         opacity: 0.0;
     }
 
-    .cards-played {
-        position: fixed;
+    /* .cards-played { */
+        /* position: fixed;
         top: 40%;
+        left: 50%;
+        height: 180px;
+        width: 150px; */
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        /* margin-top: -90px;
+        margin-left: -75px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px; */
+    /* } */
+
+    .cards-played-visible {
+        position: fixed;
+        top: 50%;
         left: 50%;
         height: 180px;
         width: 150px;
@@ -509,6 +525,22 @@
         border-style: solid;
         border-color: black;
         border-width: 1px;
+    }
+
+    .cards-played-not-visible {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        height: 150px;
+        width: 125px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -75px;
+        margin-left: -62.5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        opacity: 0.0;
     }
     
     /* lives in .cards-played */
@@ -608,11 +640,11 @@
 
     .cards-remaining {
         position: absolute;
-        font-size: 4em;
+        font-size: 3em;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: blue;
+        color: black;
         opacity: 1.0;
     }
 
