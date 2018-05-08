@@ -12,13 +12,13 @@
     }
 
     .player-container {
-        height: 90px;
-        width: 75px;
+        height: 150px;
+        width: 125px;
         position: fixed;
         top: 80%;
         left: 50%;
-        margin-top: -45px;
-        margin-left: -37.5px;
+        margin-top: -75px;
+        margin-left: -62.5px;
         border-style: solid;
         border-color: black;
         border-width: 1px;
@@ -27,13 +27,13 @@
 
     /* must match location of .player-container */
     .playCard {
-        height: 90px;
-        width: 75px;
+        height: 150px;
+        width: 125px;
         position: fixed;
         top: 80%;
         left: 50%;
-        margin-top: -45px;
-        margin-left: -37.5px;
+        margin-top: -75px;
+        margin-left: -62.5px;
         border-width: 1px;
         opacity: 0.0;
     }
@@ -42,12 +42,12 @@
         position: fixed;
         top: 50%;
         left: 50%;
-        height: 90px;
-        width: 75px;
+        height: 150px;
+        width: 125px;
         /* negative margin-top of half the height, negative margin-left of half the width to centre component */
         /* otherwise top left corner is centered */
-        margin-top: -45px;
-        margin-left: -37.5px;
+        margin-top: -75px;
+        margin-left: -62.5px;
         border-style: solid;
         border-color: black;
         border-width: 1px;
@@ -57,12 +57,12 @@
         position: fixed;
         top: 50%;
         left: 50%;
-        height: 90px;
-        width: 75px;
+        height: 150px;
+        width: 125px;
         /* negative margin-top of half the height, negative margin-left of half the width to centre component */
         /* otherwise top left corner is centered */
-        margin-top: -45px;
-        margin-left: -37.5px;
+        margin-top: -75px;
+        margin-left: -62.5px;
         border-style: solid;
         border-color: black;
         border-width: 1px;
@@ -78,35 +78,33 @@
     }
 
     .opponent-container {
-        height: 90px;
-        width: 75px;
+        height: 150px;
+        width: 125px;
         position: fixed;
         top: 20%;
         left: 50%;
-        margin-top: -45px;
-        margin-left: -37.5px;
+        margin-top: -75px;
+        margin-left: -62.5px;
         border-style: solid;
         border-color: black;
         border-width: 1px
     }
 
     .check-for-win {
-        height: 90px;
-        width: 75px;
+        height: 150px;
+        width: 125px;
         margin-top: 50%;
-        /* margin-left: auto; */
-        /* margin-right: auto; */
         border-style: solid;
-        border-color: red;
+        border-color: black;
         /* centres button */
         display: flex;
         justify-content: center;
         position: fixed;
         top: 50%;
         left: 50%;
-        margin-top: -45px;
-        margin-left: -37.5px;
-        opacity: 0.5;
+        margin-top: -75px;
+        margin-left: -62.5px;
+        opacity: 0.0;
     }
     
     /* centralize button within check-for-win div */
@@ -115,13 +113,15 @@
         margin-right: auto;
         border-style: solid;
         border-color: black;
-        height: 90px;
-        width: 75px;
+        height: 150px;
+        width: 125px;
     }
 
     .message-centre {
+        border-style: solid;
+        border-color: red;
         position: fixed;
-        top: 15%;
+        top: 65%;
         left: 50%;
         height: 40px;
         width: 200px;
@@ -148,8 +148,6 @@
     
     .center-play-snap {
         margin: 0 auto;
-        border-style: solid;
-        border-color: red;
         height: 40px;
         width: 120px;
     }
@@ -296,8 +294,6 @@
     
     .center-play-snap {
         margin: 0 auto;
-        border-style: solid;
-        border-color: red;
         height: 40px;
         width: 120px;
     }
@@ -444,8 +440,6 @@
     
     .center-play-snap {
         margin: 0 auto;
-        border-style: solid;
-        border-color: red;
         height: 40px;
         width: 120px;
     }
@@ -592,8 +586,6 @@
     
     .center-play-snap {
         margin: 0 auto;
-        border-style: solid;
-        border-color: red;
         height: 40px;
         width: 120px;
     }
@@ -740,8 +732,6 @@
     
     .center-play-snap {
         margin: 0 auto;
-        border-style: solid;
-        border-color: red;
         height: 40px;
         width: 120px;
     }
@@ -766,8 +756,10 @@
 /* generic */
 /* generic */
 
+
 .App {
-    height: 2000px;
+    height: 100vh;
+    width: 100vw;
 }
 
 

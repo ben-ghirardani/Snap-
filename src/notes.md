@@ -2,14 +2,10 @@ Things left to do -
 
 Using media queries for the above now
 
-Edit Check-For-Win console.log to display in Message Center.
-
 Add win counter
 
 Finish NoMatchMessage
+Edit Check-For-Win console.log to display in Message Center.
 
-Media Queries
-Mobile first
-
-Cards-Played: opacity is 0.0 until someone plays a card, then state is changed and className of CardsPlayed is taken from state.
-Place the check-for-win-button over cards played to simulate slamming your hand down onto the deck to say Snap!
+*** (needs a fair bit of refactoring for turns)
+Create a player-message-center and opponent-message-center. Each one just above/below the deck. Each has it's own state, which will either say it's their turn or be blank. As turns alternate, setState of one as "Your turn" and the other as blank.

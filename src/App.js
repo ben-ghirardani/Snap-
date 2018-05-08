@@ -236,7 +236,6 @@ class App extends Component {
                 winner={this.state.winner}
                 />
                 <NoMatchMessage
-
                 />
             </div>
 
