@@ -3,11 +3,11 @@
     
     .cards-remaining {
         position: absolute;
-        font-size: 4em;
+        font-size: 3em;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: fuchsia;
+        color: black;
         opacity: 1.0;
     }
 
@@ -90,6 +90,81 @@
         border-width: 1px
     }
 
+    .check-for-win {
+        height: 90px;
+        width: 75px;
+        margin-top: 50%;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        border-style: solid;
+        border-color: red;
+        /* centres button */
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -45px;
+        margin-left: -37.5px;
+        opacity: 0.5;
+    }
+    
+    /* centralize button within check-for-win div */
+    .check-for-win-button {
+        margin-left: auto;
+        margin-right: auto;
+        border-style: solid;
+        border-color: black;
+        height: 90px;
+        width: 75px;
+    }
+
+    .message-centre {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+    
+    .turn-message {
+        text-align: center;
+    }
+    
+    .winner-message {
+        text-align: center;
+    }
+    
+    .opponent-cards-remaining {
+        position: absolute;
+        font-size: 3em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1.0;
+    }
+    
+    .center-play-snap {
+        margin: 0 auto;
+        border-style: solid;
+        border-color: red;
+        height: 40px;
+        width: 120px;
+    }
+    
+    .play-snap {
+        border-radius: 25px;
+        border-style: solid;
+        border-color: black;
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+        color: white;
+        background-color: black;
+    }
+
 }
 
 /* small devices 600px up */
@@ -165,6 +240,77 @@
         border-style: solid;
         border-color: black;
         border-width: 1px
+    }
+
+    .check-for-win {
+        height: 40px;
+        width: 140px;
+        margin-top: 55%;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: solid;
+        border-color: green;
+        /* centres button */
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* centralize button within check-for-win div */
+    .check-for-win-button {
+        border-radius: 25px;
+        border-style: solid;
+        border-color: black;
+        color: white;
+        background-color: black;
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+    }
+
+    .message-centre {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+    
+    .turn-message {
+        text-align: center;
+    }
+    
+    .winner-message {
+        text-align: center;
+    }
+    
+    .opponent-cards-remaining {
+        position: absolute;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.45;
+    }
+    
+    .center-play-snap {
+        margin: 0 auto;
+        border-style: solid;
+        border-color: red;
+        height: 40px;
+        width: 120px;
+    }
+    
+    .play-snap {
+        border-radius: 25px;
+        border-style: solid;
+        border-color: black;
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+        color: white;
+        background-color: black;
     }
 
 }
@@ -244,6 +390,77 @@
         border-width: 1px
     }
 
+    .check-for-win {
+        height: 40px;
+        width: 140px;
+        margin-top: 55%;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: solid;
+        border-color: green;
+        /* centres button */
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* centralize button within check-for-win div */
+    .check-for-win-button {
+        border-radius: 25px;
+        border-style: solid;
+        border-color: black;
+        color: white;
+        background-color: black;
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+    }
+
+    .message-centre {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+    
+    .turn-message {
+        text-align: center;
+    }
+    
+    .winner-message {
+        text-align: center;
+    }
+    
+    .opponent-cards-remaining {
+        position: absolute;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.45;
+    }
+    
+    .center-play-snap {
+        margin: 0 auto;
+        border-style: solid;
+        border-color: red;
+        height: 40px;
+        width: 120px;
+    }
+    
+    .play-snap {
+        border-radius: 25px;
+        border-style: solid;
+        border-color: black;
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+        color: white;
+        background-color: black;
+    }
+
 }
 
 /* large devices 992px and up */
@@ -319,6 +536,77 @@
         border-style: solid;
         border-color: black;
         border-width: 1px
+    }
+
+    .check-for-win {
+        height: 40px;
+        width: 140px;
+        margin-top: 55%;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: solid;
+        border-color: green;
+        /* centres button */
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* centralize button within check-for-win div */
+    .check-for-win-button {
+        border-radius: 25px;
+        border-style: solid;
+        border-color: black;
+        color: white;
+        background-color: black;
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+    }
+
+    .message-centre {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+    
+    .turn-message {
+        text-align: center;
+    }
+    
+    .winner-message {
+        text-align: center;
+    }
+    
+    .opponent-cards-remaining {
+        position: absolute;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.45;
+    }
+    
+    .center-play-snap {
+        margin: 0 auto;
+        border-style: solid;
+        border-color: red;
+        height: 40px;
+        width: 120px;
+    }
+    
+    .play-snap {
+        border-radius: 25px;
+        border-style: solid;
+        border-color: black;
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+        color: white;
+        background-color: black;
     }
 
 }
@@ -398,6 +686,77 @@
         border-width: 1px
     }
 
+    .check-for-win {
+        height: 40px;
+        width: 140px;
+        margin-top: 55%;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: solid;
+        border-color: green;
+        /* centres button */
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* centralize button within check-for-win div */
+    .check-for-win-button {
+        border-radius: 25px;
+        border-style: solid;
+        border-color: black;
+        color: white;
+        background-color: black;
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+    }
+
+    .message-centre {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+    
+    .turn-message {
+        text-align: center;
+    }
+    
+    .winner-message {
+        text-align: center;
+    }
+    
+    .opponent-cards-remaining {
+        position: absolute;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.45;
+    }
+    
+    .center-play-snap {
+        margin: 0 auto;
+        border-style: solid;
+        border-color: red;
+        height: 40px;
+        width: 120px;
+    }
+    
+    .play-snap {
+        border-radius: 25px;
+        border-style: solid;
+        border-color: black;
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+        color: white;
+        background-color: black;
+    }
+
 }
 
 /* generic css takes over if it can */
@@ -409,77 +768,6 @@
 
 .App {
     height: 2000px;
-}
-
-.message-centre {
-    position: fixed;
-    top: 15%;
-    left: 50%;
-    height: 40px;
-    width: 200px;
-    margin-top: -20px;
-    margin-left: -100px;
-}
-
-.turn-message {
-    text-align: center;
-}
-
-.winner-message {
-    text-align: center;
-}
-
-.opponent-cards-remaining {
-    position: absolute;
-    font-size: 4em;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.45;
-}
-
-.center-play-snap {
-    margin: 0 auto;
-    border-style: solid;
-    border-color: red;
-    height: 40px;
-    width: 120px;
-}
-
-.play-snap {
-    border-radius: 25px;
-    border-style: solid;
-    border-color: black;
-    height: 40px;
-    width: 120px;
-    font-size: 20px;
-    color: white;
-    background-color: black;
-}
-
-.check-for-win {
-    height: 40px;
-    width: 140px;
-    margin-top: 55%;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: solid;
-    border-color: green;
-    /* centres button */
-    display: flex;
-    justify-content: center;
-}
-
-/* centralize button within check-for-win div */
-.check-for-win-button {
-    border-radius: 25px;
-    border-style: solid;
-    border-color: black;
-    color: white;
-    background-color: black;
-    height: 40px;
-    width: 120px;
-    font-size: 20px;
 }
 
 
