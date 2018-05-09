@@ -91,6 +91,7 @@ class App extends Component {
         playerDeckTop: CardBack,
         opponentDeckTop: CardBack,
         cardsPlayedVisible: false,
+        playerTurn: null,
     };
     this.handlePlaySnap = this.handlePlaySnap.bind(this);
     this.shuffleDeck = this.shuffleDeck.bind(this);
@@ -147,6 +148,7 @@ class App extends Component {
                                   this.setState({winner: "Opponent Wins!!!"})
                           }}, timeout);
                   }
+                      this.setState({playerTurn: true})
                       this.setState({turn: "Your Turn"})
               }
           }, timeout);
@@ -201,6 +203,7 @@ class App extends Component {
           this.setState({cardsPlayedLastCard: lastCard})
           this.checkPlayerDeckLength(this.state.playerDeck)
           this.setState({cardsPlayedVisible: true})
+          this.setState({playerTurn: false})
           this.setState({turn: "Opponent's Turn"})
           this.opponentTurn()
   }
@@ -210,8 +213,11 @@ class App extends Component {
           this.setState({turn: "Game over!"})
           this.setState({winner: "You win!"})
       } else {
-      // create a proper message here
-          console.log("they don't match :(")
+          this.setState({winner: "They don't match!"})
+          let timeout = 2000;
+          setTimeout(() => {
+            this.setState({winner: ""});
+          }, timeout);
     }
   }
 
@@ -228,7 +234,8 @@ class App extends Component {
             </button>
             </div>
 
-            <div className="message-centre">
+            {/* <div className="message-centre"> */}
+            <div className={this.state.playerTurn? "player-message-centre":"opponent-message-centre"} >
                 <TurnMessage
                     turn={this.state.turn}
                 />

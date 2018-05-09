@@ -117,11 +117,23 @@
         width: 125px;
     }
 
-    .message-centre {
+    .player-message-centre {
         border-style: solid;
         border-color: red;
         position: fixed;
         top: 65%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+
+    .opponent-message-centre {
+        border-style: solid;
+        border-color: red;
+        position: fixed;
+        top: 35%;
         left: 50%;
         height: 40px;
         width: 200px;
@@ -205,19 +217,35 @@
         opacity: 0.0;
     }
 
-    .cards-played {
+    .cards-played-visible {
         position: fixed;
-        top: 40%;
+        top: 50%;
         left: 50%;
-        height: 180px;
-        width: 150px;
+        height: 150px;
+        width: 125px;
         /* negative margin-top of half the height, negative margin-left of half the width to centre component */
         /* otherwise top left corner is centered */
-        margin-top: -90px;
-        margin-left: -75px;
+        margin-top: -75px;
+        margin-left: -62.5px;
         border-style: solid;
         border-color: black;
         border-width: 1px;
+    }
+
+    .cards-played-not-visible {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        height: 150px;
+        width: 125px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -75px;
+        margin-left: -62.5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        opacity: 0.0;
     }
     
     /* lives in .cards-played */
@@ -266,9 +294,23 @@
         font-size: 20px;
     }
 
-    .message-centre {
+    .player-message-centre {
+        border-style: solid;
+        border-color: red;
         position: fixed;
-        top: 15%;
+        top: 65%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+
+    .opponent-message-centre {
+        border-style: solid;
+        border-color: red;
+        position: fixed;
+        top: 35%;
         left: 50%;
         height: 40px;
         width: 200px;
@@ -351,19 +393,35 @@
         opacity: 0.0;
     }
 
-    .cards-played {
+    .cards-played-visible {
         position: fixed;
-        top: 40%;
+        top: 50%;
         left: 50%;
-        height: 180px;
-        width: 150px;
+        height: 150px;
+        width: 125px;
         /* negative margin-top of half the height, negative margin-left of half the width to centre component */
         /* otherwise top left corner is centered */
-        margin-top: -90px;
-        margin-left: -75px;
+        margin-top: -75px;
+        margin-left: -62.5px;
         border-style: solid;
         border-color: black;
         border-width: 1px;
+    }
+
+    .cards-played-not-visible {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        height: 150px;
+        width: 125px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -75px;
+        margin-left: -62.5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        opacity: 0.0;
     }
     
     /* lives in .cards-played */
@@ -412,9 +470,23 @@
         font-size: 20px;
     }
 
-    .message-centre {
+    .player-message-centre {
+        border-style: solid;
+        border-color: red;
         position: fixed;
-        top: 15%;
+        top: 65%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+
+    .opponent-message-centre {
+        border-style: solid;
+        border-color: red;
+        position: fixed;
+        top: 35%;
         left: 50%;
         height: 40px;
         width: 200px;
@@ -497,21 +569,6 @@
         opacity: 0.0;
     }
 
-    /* .cards-played { */
-        /* position: fixed;
-        top: 40%;
-        left: 50%;
-        height: 180px;
-        width: 150px; */
-        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
-        /* otherwise top left corner is centered */
-        /* margin-top: -90px;
-        margin-left: -75px;
-        border-style: solid;
-        border-color: black;
-        border-width: 1px; */
-    /* } */
-
     .cards-played-visible {
         position: fixed;
         top: 50%;
@@ -589,9 +646,23 @@
         font-size: 20px;
     }
 
-    .message-centre {
+    .player-message-centre {
+        border-style: solid;
+        border-color: red;
         position: fixed;
-        top: 15%;
+        top: 65%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+
+    .opponent-message-centre {
+        border-style: solid;
+        border-color: red;
+        position: fixed;
+        top: 35%;
         left: 50%;
         height: 40px;
         width: 200px;
@@ -674,19 +745,35 @@
         opacity: 0.0;
     }
 
-    .cards-played {
+    .cards-played-visible {
         position: fixed;
-        top: 40%;
+        top: 50%;
         left: 50%;
-        height: 180px;
-        width: 150px;
+        height: 150px;
+        width: 125px;
         /* negative margin-top of half the height, negative margin-left of half the width to centre component */
         /* otherwise top left corner is centered */
-        margin-top: -90px;
-        margin-left: -75px;
+        margin-top: -75px;
+        margin-left: -62.5px;
         border-style: solid;
         border-color: black;
         border-width: 1px;
+    }
+
+    .cards-played-not-visible {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        height: 150px;
+        width: 125px;
+        /* negative margin-top of half the height, negative margin-left of half the width to centre component */
+        /* otherwise top left corner is centered */
+        margin-top: -75px;
+        margin-left: -62.5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        opacity: 0.0;
     }
     
     /* lives in .cards-played */
@@ -735,9 +822,23 @@
         font-size: 20px;
     }
 
-    .message-centre {
+    .player-message-centre {
+        border-style: solid;
+        border-color: red;
         position: fixed;
-        top: 15%;
+        top: 65%;
+        left: 50%;
+        height: 40px;
+        width: 200px;
+        margin-top: -20px;
+        margin-left: -100px;
+    }
+
+    .opponent-message-centre {
+        border-style: solid;
+        border-color: red;
+        position: fixed;
+        top: 35%;
         left: 50%;
         height: 40px;
         width: 200px;
