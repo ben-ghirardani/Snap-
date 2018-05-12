@@ -148,7 +148,7 @@ class App extends Component {
                                   this.setState({winner: "Opponent Wins!!!"})
                           }}, timeout);
                   }
-                      this.setState({playerTurn: true})
+                      this.setState({playerTurn: "player-message-centre"})
                       this.setState({turn: "Your Turn"})
               }
           }, timeout);
@@ -179,7 +179,11 @@ class App extends Component {
       this.setState({turn: firstTurn},
           function() {
               if (this.state.turn === "Opponent's Turn") {
+                  this.setState({playerTurn: "opponent-message-centre"});
                   this.opponentTurn();    
+              }
+              else {
+                  this.setState({playerTurn: "player-message-centre"});
               } 
           }
       )
@@ -203,7 +207,7 @@ class App extends Component {
           this.setState({cardsPlayedLastCard: lastCard})
           this.checkPlayerDeckLength(this.state.playerDeck)
           this.setState({cardsPlayedVisible: true})
-          this.setState({playerTurn: false})
+          this.setState({playerTurn: "opponent-message-centre"})
           this.setState({turn: "Opponent's Turn"})
           this.opponentTurn()
   }
@@ -234,8 +238,7 @@ class App extends Component {
             </button>
             </div>
 
-            {/* <div className="message-centre"> */}
-            <div className={this.state.playerTurn? "player-message-centre":"opponent-message-centre"} >
+            <div className={this.state.playerTurn} >
                 <TurnMessage
                     turn={this.state.turn}
                 />
