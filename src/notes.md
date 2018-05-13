@@ -1,4 +1,11 @@
+Learning points for next time - spent a lot of time of game logic. 
+
 Things left to do -
+
+Opponent won with the following sequeance - AClubs, 4Clubs, 4Hearts, QDiamonds. Need to prevent ability to win if player has played a card since the matching sequence.
+
+* Add a rules button
+    Could be a div that uses the visible/invisible CSS method to overlay the screen.
 
 Add win counter
 

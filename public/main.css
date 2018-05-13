@@ -118,8 +118,6 @@
     }
 
     .player-message-centre {
-        border-style: solid;
-        border-color: red;
         position: fixed;
         top: 65%;
         left: 50%;
@@ -130,8 +128,6 @@
     }
 
     .opponent-message-centre {
-        border-style: solid;
-        border-color: red;
         position: fixed;
         top: 35%;
         left: 50%;
@@ -385,13 +381,4 @@
     margin: auto;
     width: 100%;
     height: 100%;
-}
-
-/* use this to move header across */
-.player-header {
-    position: absolute
-}
-
-.opponent-header {
-    position: absolute
 }
