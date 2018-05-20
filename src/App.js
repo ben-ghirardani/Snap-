@@ -140,13 +140,15 @@ class App extends Component {
                   this.checkOpponentDeckLength(this.state.opponentDeck)
                       if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
                           let timeout = 2000;
-                        //   add a check below to prevent opponent winning if player has played a card since the matching pair
                           setTimeout(() => {
                               if (this.state.turn === "Game over!") {
                                   return
                               } else {
+                                if (this.state.cardsPlayedLastCard[0].value === this.state.cardsPlayed2ndLastCard[0].value) {
                                   this.setState({turn: "Game over!"})
                                   this.setState({winner: "Opponent Wins!!!"})
+                                }
+                                return
                           }}, timeout);
                   }
                       this.setState({playerTurn: "player-message-centre"})
